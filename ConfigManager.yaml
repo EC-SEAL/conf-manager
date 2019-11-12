@@ -1,21 +1,12 @@
-#openapi: "3.0.2"
 swagger: '2.0'
 info:
   title: "ConfigManager (SEAL Service Microservice Specification)"
   version: 0.0.1
-  description: "This document contains the formal specification of all standard module interfaces in SEAL Service.
+  description: "This document contains the formal specification of Configuration Manager interface in SEAL Service.
   
   **Take into account that parameters marked as cookie type, will instead be passed through the session object**
   "
- 
-#servers:
-#    - url: https://domain/basepath
-#      description: Production server
-#    - url: https://domain/basepath
-#      description: Pre-production server
-#    - url: https://domain/basepath
-#      description: Development server
-  
+   
 
 tags:
     - name: "ConfigManager"
@@ -49,15 +40,16 @@ paths:
       description: Get ...
       operationId: classMicroservicesGet
       produces:
-      - "application/json"
-      
+        - "application/json"
+      consumes:
+        - application/json
       parameters:
-      - name: "apiClass"  
-        in: "path"
-        required: true
-        type: string
-        #schema:
-        #  $ref: '#/definitions/apiClassEnum'
+        - name: "apiClass"  
+          in: "path"
+          required: true
+          type: string
+          #schema:
+          #  $ref: '#/definitions/apiClassEnum'
       
       responses:
         200:
@@ -232,7 +224,6 @@ paths:
         - ConfigManager
       summary: Get the list of mappings of attributes with other sets, for the profile just specified.
       description: Get ...
-      operationId: attributeSetMapsGet
       produces:
       - "application/json"
       parameters:
@@ -248,8 +239,11 @@ paths:
         404:
           description: "Attribute Profile not found"
 
+
 		  
 definitions:
+
+####### ConfigManager ########
 
 ####### ConfigManager ########
 
@@ -303,17 +297,12 @@ definitions:
       $ref: '#/definitions/msMetadata'
       
 
-      
-  
             
   #Types of Microservice #TODO, update
   apiClassEnum:
     type: string
     enum:
       - APIGW
-
-
-
     
   
   # Descriptor Object for an External Entity (data source, authsource)
@@ -482,7 +471,8 @@ definitions:
       items: 
         $ref: '#/definitions/attributeType'
 
-# TO BE DEFINED
+
+#TODO
   attributeMapList:
     #type: map
     type: object
