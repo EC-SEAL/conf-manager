@@ -224,6 +224,7 @@ paths:
         - ConfigManager
       summary: Get the list of mappings of attributes with other sets, for the profile just specified.
       description: Get ...
+      operationId: attributeMappingGet
       produces:
       - "application/json"
       parameters:
@@ -235,7 +236,7 @@ paths:
         200:
           description: "Successful operation"
           schema:
-            $ref: "#/definitions/attributeMapList"
+            $ref: "#/definitions/attributeMappingList"
         404:
           description: "Attribute Profile not found"
 
@@ -298,11 +299,16 @@ definitions:
       
 
             
-  #Types of Microservice #TODO, update
+  #Types of Microservice 
+  #TODO, update
   apiClassEnum:
     type: string
     enum:
-      - APIGW
+      - APIGWCL
+      - APIGWSP
+      - APIGWLNK
+      - SM
+      - CM
     
   
   # Descriptor Object for an External Entity (data source, authsource)
@@ -473,7 +479,8 @@ definitions:
 
 
 #TODO
-  attributeMapList:
+  attributeMappingList:
     #type: map
-    type: object
+    type: string
+    example: "{\"eIDAS.PersonIdentifier\": \"eduPerson.eduPersonUniqueId\", \"eIDAS.FamilyName\": \"eduPerson.eduPersonPrincipalName\"}"
     

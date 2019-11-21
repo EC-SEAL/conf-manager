@@ -1,0 +1,94 @@
+
+
+
+    [
+	{
+
+		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#eduPersonAffiliation",
+        "friendlyName"	:"eduPersonAffiliation", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: ["string"]
+	},
+	{
+		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#eduPersonPrimaryAffiliation",
+        "friendlyName"	:"eduPersonPrimaryAffiliation", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: ["string"]
+	},
+	{
+		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#eduPersonPrincipalName",
+        "friendlyName"	:"eduPersonPrincipalName", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: ["string"]
+
+    },
+	{
+		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#eduPersonPrincipalNamePrior",
+        "friendlyName"	:"eduPersonPrincipalNamePrior", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: ["string"]
+	},
+	{
+		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#eduPersonPrimaryOrgUnitDN",
+        "friendlyName"	:"eduPersonOrgUnitDN", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: 	
+							["ou","o","dc","c"]
+	},
+	{
+		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#eduPersonUniqueId",
+        "friendlyName"	:"eduPersonUniqueId", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: ["string"]
+    },
+	{
+		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#displayName",
+        "friendlyName"	:"displayName", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: ["string"]
+    },
+	{
+		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#givenName",
+        "friendlyName"	:"givenName", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: ["string"]
+    },
+	{
+		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#mail",
+        "friendlyName"	:"mail", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: ["string"]
+    },
+	{
+		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#mobile",
+        "friendlyName"	:"mobile", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: ["string"]
+    },
+	{
+		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#o",
+        "friendlyName"	:"o", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: ["string"]
+    },	
+	{
+		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#sn",
+        "friendlyName"	:"sn", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: ["string"]
+    }
+	]
+
+

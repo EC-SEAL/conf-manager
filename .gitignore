@@ -1,0 +1,9 @@
+/ConfMngr/.settings/
+/ConfMngr/.swagger-codegen/
+/ConfMngr/target/
+/ConfMngr/.classpath
+/ConfMngr/.project
+/ConfMngr/.springBeans
+/ConfMngr/.swagger-codegen-ignore
+
+/.metadata/

@@ -1,0 +1,6 @@
+mvn install:install-file -Dfile=ewp-registry-client-1.6.1-SNAPSHOT.jar \
+-DgroupId=eu.erasmuswithoutpaper \
+-Dversion=1.6.1-SNAPSHOT \
+-DartifactId=ewp-registry-client\
+-Dpackaging=jar \
+-DlocalRepositoryPath=C:\Users\S287526\.m2\repository 
