@@ -21,7 +21,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
 import eu.seal.cm.configuration.Constants;
-import eu.seal.cm.rest_api.domain.AttributeMappingList;
+import eu.seal.cm.rest_api.domain.AttributeMapList;
 
 import eu.seal.cm.utils.Utils;
 
@@ -35,18 +35,28 @@ public class AttributeMappingGetServiceImp implements AttributeMappingGetService
 	String fileExtension;
 	
 	@Override
-	public AttributeMappingList attributeMappingGet (String attrProfileId) throws Exception {
+	public AttributeMapList attributeMappingGet (String attrProfileId) throws Exception {
 		// TO BE AWARE of the fileName expected!!!
 		
-		AttributeMappingList attrMappings = new AttributeMappingList();
+		AttributeMapList attrMappings = new AttributeMapList();
 		//TODO
 		
 		// File with eIDAS to eduPerson mappings:
-		String fileStringValue = "{\"eIDAS.PersonIdentifier\": \"eduPerson.eduPersonUniqueId\", \"eIDAS.FamilyName\": \"eduPerson.eduPersonPrincipalName\"}";
+		String fileStringValue = "[{ \n" +
+				"\"keyProfile\" : \"eIDAS\", \n" +
+				"\"valueProfile\" : \"eduPerson\", \n" +
+				"\"mappings\" : \n" +
+				"  { \n" +
+				"    \"CurrentGivenName\" : [\"givenName\", \"displayName\",\"cn\"], \n" +
+				"    \"CurrentFamilyName\" : [\"sn\", \"displayName\",\"cn\"] \n" +
+				"  } \n" +
+				"}]";
+
+	//"{\"eIDAS.PersonIdentifier\": \"eduPerson.eduPersonUniqueId\", \"eIDAS.FamilyName\": \"eduPerson.eduPersonPrincipalName\"}";
 		
 		try {
 			Gson gson = new Gson();
-			attrMappings = gson.fromJson(fileStringValue, AttributeMappingList.class);
+			attrMappings = gson.fromJson(fileStringValue, AttributeMapList.class);
 		//} catch (IOException e){
 		//	throw new IOException(e);
 		} catch (JsonSyntaxException e) {
@@ -54,7 +64,7 @@ public class AttributeMappingGetServiceImp implements AttributeMappingGetService
 		} catch (Exception e){			
 			throw new Exception(e);
 		}
-		return attrMappings;
+		return attrMappings.getMapList(attrProfileId);
 		
 //		AttributeTypeList attributes= new AttributeTypeList();
 //		

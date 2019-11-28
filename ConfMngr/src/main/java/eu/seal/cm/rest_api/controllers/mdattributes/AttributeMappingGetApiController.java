@@ -16,7 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.JsonSyntaxException;
 
 import eu.seal.cm.configuration.Constants;
-import eu.seal.cm.rest_api.domain.AttributeMappingList;
+import eu.seal.cm.rest_api.domain.AttributeMapList;
 import eu.seal.cm.rest_api.services.mdattributes.AttributeMappingGetService;
 import io.swagger.annotations.*;
 
@@ -51,27 +51,27 @@ public class AttributeMappingGetApiController implements AttributeMappingGetApi 
         this.request = request;
     }
 
-    public ResponseEntity<AttributeMappingList> attributeMappingGet(@ApiParam(value = "",required=true) @PathVariable("attrProfileId") String attrProfileId) {
+    public ResponseEntity<AttributeMapList> attributeMappingGet(@ApiParam(value = "",required=true) @PathVariable("attrProfileId") String attrProfileId) {
         String accept = request.getHeader("Accept");
         
         if (accept != null && accept.contains("application/json")) {
-        	AttributeMappingList attributeMappings = new AttributeMappingList();
+        	AttributeMapList attributeMappings = new AttributeMapList();
         	
         	try {
         		attributeMappings = attributeMappingGetService.attributeMappingGet(attrProfileId);
-        		return new ResponseEntity<AttributeMappingList>(attributeMappings,HttpStatus.OK);
+        		return new ResponseEntity<AttributeMapList>(attributeMappings,HttpStatus.OK);
                 }
         	catch (IOException e) {
             	log.error(Constants.FILE_ERROR, e);
-        		return new ResponseEntity<AttributeMappingList>(HttpStatus.NOT_FOUND);
+        		return new ResponseEntity<AttributeMapList>(HttpStatus.NOT_FOUND);
             }
         	catch (JsonSyntaxException e) {
             	log.error(Constants.JSON_SYNTAX_ERROR, e);
-        		return new ResponseEntity<AttributeMappingList>(HttpStatus.NOT_FOUND);
+        		return new ResponseEntity<AttributeMapList>(HttpStatus.NOT_FOUND);
             }
             catch (Exception e) {
             	log.error(Constants.ATTRIBUTES_NOT_FOUND, e);
-        		return new ResponseEntity<AttributeMappingList>(HttpStatus.NOT_FOUND);
+        		return new ResponseEntity<AttributeMapList>(HttpStatus.NOT_FOUND);
             }
         	
         	/*
@@ -84,7 +84,7 @@ public class AttributeMappingGetApiController implements AttributeMappingGetApi 
             */
         }
 
-        return new ResponseEntity<AttributeMappingList>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<AttributeMapList>(HttpStatus.NOT_IMPLEMENTED);
     }
 
     

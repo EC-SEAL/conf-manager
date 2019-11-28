@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import eu.seal.cm.rest_api.domain.AttributeMappingList;
+import eu.seal.cm.rest_api.domain.AttributeMapList;
 import eu.seal.cm.rest_api.domain.AttributeTypeList;
 
 @Api(value = "metadata", description = "the metadata API")
@@ -26,12 +26,12 @@ public interface AttributeMappingGetApi {
 
     @ApiOperation(value = "Get the attribute set for the profile just specified.", nickname = "attributeMappingGet", notes = "Get ...", response = AttributeTypeList.class, tags={ "ConfigManager", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Successful operation", response = AttributeMappingList.class),
+        @ApiResponse(code = 200, message = "Successful operation", response = AttributeMapList.class),
         @ApiResponse(code = 404, message = "Attribute Profile not found") })
     @RequestMapping(value = "/cm/metadata/attributes/{attrProfileId}/maps",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<AttributeMappingList> attributeMappingGet(@ApiParam(value = "",required=true) @PathVariable("attrProfileId") String attrProfileId);
+    ResponseEntity<AttributeMapList> attributeMappingGet(@ApiParam(value = "",required=true) @PathVariable("attrProfileId") String attrProfileId);
 
 
 

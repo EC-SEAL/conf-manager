@@ -236,7 +236,7 @@ paths:
         200:
           description: "Successful operation"
           schema:
-            $ref: "#/definitions/attributeMappingList"
+            $ref: "#/definitions/attributeMapList"
         404:
           description: "Attribute Profile not found"
 
@@ -478,9 +478,41 @@ definitions:
         $ref: '#/definitions/attributeType'
 
 
-#TODO
-  attributeMappingList:
-    #type: map
-    type: string
-    example: "{\"eIDAS.PersonIdentifier\": \"eduPerson.eduPersonUniqueId\", \"eIDAS.FamilyName\": \"eduPerson.eduPersonPrincipalName\"}"
+#TODO: Paco's email 28.11.2019
+
+#{
+#"keyProfile" : "eIDAS",
+#"valueProfile" : "eduPerson",
+#"mappings" : 
+#  {
+#    "CurrentGivenName" : ["givenName", "displayName","cn"],
+#    "CurrentFamilyName" : ["sn", "displayName","cn"]
+#  }
+#}
+  attributeMap:
+    description: Represent relatioonships between attributes in two attribute profiles. i.e. eduPerson.givenName <-> eIDAS
+    type: object
+    properties:
+      keyProfile:
+        type: string
+        description: Name of the attribute profile specified in the keys
+        example: "eIDAS"
+      valueProfile:
+        type: string
+        description: Name of the attribute profile specified in the values
+        example: "eduPerson"
+      mappings:
+        type: object
+        additionalProperties:
+          type: array
+          example: "CurrentGivenName"
+          items:
+            type: string
+            example: ["givenName", "displayName","cn"]
+             
+    
+  attributeMapList:
+    type: array
+    items: 
+      $ref: '#/definitions/attributeMap'
     

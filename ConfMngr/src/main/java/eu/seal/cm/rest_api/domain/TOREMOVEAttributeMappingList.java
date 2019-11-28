@@ -32,7 +32,7 @@ import java.util.HashMap;
  */
 
 @Validated
-public class AttributeMappingList extends HashMap<String,String>  {
+public class TOREMOVEAttributeMappingList extends HashMap<String,String>  {
 	
 	/**
 	 * 

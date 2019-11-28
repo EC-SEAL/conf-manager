@@ -12,10 +12,10 @@ See README file for the full disclaimer information and LICENSE file for full li
 */
 package eu.seal.cm.rest_api.services.mdattributes;
 
-import eu.seal.cm.rest_api.domain.AttributeMappingList;
+import eu.seal.cm.rest_api.domain.AttributeMapList;
 
 public interface AttributeMappingGetService {
 	
-	AttributeMappingList attributeMappingGet (String attrProfileId) throws Exception;
+	AttributeMapList attributeMappingGet (String attrProfileId) throws Exception;
 
 }
