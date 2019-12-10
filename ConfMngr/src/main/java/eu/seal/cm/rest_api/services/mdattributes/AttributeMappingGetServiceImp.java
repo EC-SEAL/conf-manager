@@ -42,17 +42,58 @@ public class AttributeMappingGetServiceImp implements AttributeMappingGetService
 		//TODO
 		
 		// File with eIDAS to eduPerson mappings:
-		String fileStringValue = "[{ \n" +
-				"\"keyProfile\" : \"eIDAS\", \n" +
-				"\"valueProfile\" : \"eduPerson\", \n" +
-				"\"mappings\" : \n" +
-				"  { \n" +
-				"    \"CurrentGivenName\" : [\"givenName\", \"displayName\",\"cn\"], \n" +
-				"    \"CurrentFamilyName\" : [\"sn\", \"displayName\",\"cn\"] \n" +
-				"  } \n" +
-				"}]";
+		
+		// OLD OLD OLD
+//		String fileStringValue = "[{ \n" +
+//				"\"keyProfile\" : \"eIDAS\", \n" +
+//				"\"valueProfile\" : \"eduPerson\", \n" +
+//				"\"mappings\" : \n" +
+//				"  { \n" +
+//				"    \"CurrentGivenName\" : [\"givenName\", \"displayName\",\"cn\"], \n" +
+//				"    \"CurrentFamilyName\" : [\"sn\", \"displayName\",\"cn\"] \n" +
+//				"  } \n" +
+//				"}]";
 
-	//"{\"eIDAS.PersonIdentifier\": \"eduPerson.eduPersonUniqueId\", \"eIDAS.FamilyName\": \"eduPerson.eduPersonPrincipalName\"}";
+		String fileStringValue = "[{ \n" +
+					  "\"description\": \"eIDAS to eduPerson fake mapping, showing both concatenation and transformation in one side\",\n" +
+					  "\"pairings\": [ \n" +
+					    "{ \n" +
+					      "\"profile\" :  \"eIDAS\", \n" +
+					      "\"issuer\" : \"http://clave.redsara.es/\", \n" +
+					      "\"attributes\" : [\"$surnames\"] \n" +
+					    "}, \n" +
+					    "{ \n" +
+					    "\"profile\" :  \"eduPerson\", \n" +
+					    "\"attributes\" : [\"$surname1\",\"#\",\"$surname2\"], \n" +
+					    "\"regexp\" : \"^(-,a-zA-Z)+#(-,a-zA-Z)+$\", \n" +
+					    "\"replace\" : \"\1 \2\" \n" +
+					    "} \n" +
+					  "] \n" +
+					"}, \n" +
+
+					"{ \n" +
+					"\"description\": \"Basic mapping, also inaccurate, but to show the options\", \n" +
+					"\"pairings\": [ \n" +
+					    "{ \n" +
+					    "\"profile\" :  \"eIDAS\", \n" +
+					    "\"attributes\" : [\"$CurrentGivenName\"] \n" +
+					    "}, \n" +
+					    "{ \n" +
+					    "\"profile\" :  \"eduPerson\", \n" +
+					    "\"attributes\" : [\"$givenName\"] \n" +
+					    "}, \n" +
+					    "{ \n" +
+					    "\"profile\" :  \"eduPerson\",  \n" +
+					    "\"attributes\" : [\"$displayName\"] \n" +
+					    "}, \n" +
+					    "{ \n" +
+					    "\"profile\" :  \"eduPerson\", \n" +
+					    "\"attributes\" : [\"$cn\"] \n" +
+					    "} \n" +
+					  "] \n" +
+					"}] \n" ;
+
+	
 		
 		try {
 			Gson gson = new Gson();
@@ -64,7 +105,8 @@ public class AttributeMappingGetServiceImp implements AttributeMappingGetService
 		} catch (Exception e){			
 			throw new Exception(e);
 		}
-		return attrMappings.getMapList(attrProfileId);
+		//return attrMappings.getMapList(attrProfileId);
+		return attrMappings;
 		
 //		AttributeTypeList attributes= new AttributeTypeList();
 //		

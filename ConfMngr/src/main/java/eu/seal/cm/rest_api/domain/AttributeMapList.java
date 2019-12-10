@@ -24,7 +24,6 @@ import javax.validation.constraints.*;
  * AttributeMapList
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-11-28T12:17:08.653Z")
 
 public class AttributeMapList extends ArrayList<AttributeMap>  {
 
@@ -65,22 +64,23 @@ public class AttributeMapList extends ArrayList<AttributeMap>  {
   }
   
   
-//Get the list of ms with a given apiClass
- public AttributeMapList getMapList (String profile) {
-	  
-	 AttributeMapList attrMap = new AttributeMapList();
-	  
-	 AttributeMap mapping;
-	 Iterator<AttributeMap> attrMapIterator = this.iterator();
-	 while (attrMapIterator.hasNext()) {
-		  mapping = attrMapIterator.next();
-		  if (mapping != null) {
-			  if (mapping.getKeyProfile().equals(profile))
-				  attrMap.add (mapping);
-		  }	  
-	 }
-	 
-	 return attrMap;
- }
+//Get the list of mappings related to a given profile
+  // OLD OLD OLD
+// public AttributeMapList getMapList (String profile) {
+//	  
+//	 AttributeMapList attrMap = new AttributeMapList();
+//	  
+//	 AttributeMap mapping;
+//	 Iterator<AttributeMap> attrMapIterator = this.iterator();
+//	 while (attrMapIterator.hasNext()) {
+//		  mapping = attrMapIterator.next();
+//		  if (mapping != null) {
+//			  if (mapping.getKeyProfile().equals(profile))
+//				  attrMap.add (mapping);
+//		  }	  
+//	 }
+//	 
+//	 return attrMap;
+// }
 }
 

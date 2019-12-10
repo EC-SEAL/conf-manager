@@ -17,7 +17,7 @@ springfox:
   documentation.swagger.v2.path: /api-docs
 server:
   #contextPath: /cm
-  port: 8433
+  port: 8083
   port.http: 8080  
         #8090
   ssl:

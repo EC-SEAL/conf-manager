@@ -478,37 +478,82 @@ definitions:
         $ref: '#/definitions/attributeType'
 
 
-#TODO: Paco's email 28.11.2019
-
+#Paco's email 05.12.2019
+# Two examples:
 #{
-#"keyProfile" : "eIDAS",
-#"valueProfile" : "eduPerson",
-#"mappings" : 
-#  {
-#    "CurrentGivenName" : ["givenName", "displayName","cn"],
-#    "CurrentFamilyName" : ["sn", "displayName","cn"]
-#  }
+#  "description": "eIDAS to eduPerson fake mapping, showing both concatenation and transformation in one side",
+#  "pairings": [
+#    {
+#      "profile" :  "eIDAS",
+#      "issuer" : "http://clave.redsara.es/",
+#      "attributes" : ["$surnames"],
+#    },
+#    {
+#      "profile" :  "eduPerson",
+#      "attributes" : ["$surname1","#","$surname2"],
+#      "regexp" : "^(-,a-zA-Z)+#(-,a-zA-Z)+$",
+#      "replace" : "\1 \2"
+#    },
+#  ],
+#},
+#
+#{
+#  "description": "Basic mapping, also inaccurate, but to show the options",
+#  "pairings": [
+#    {
+#      "profile" :  "eIDAS",
+#      "attributes" : ["$CurrentGivenName"],
+#    },
+#    {
+#      "profile" :  "eduPerson",
+#      "attributes" : ["$givenName"],
+#    },
+#    {
+#      "profile" :  "eduPerson",
+#      "attributes" : ["$displayName"],
+#    },
+#    {
+#      "profile" :  "eduPerson",
+#      "attributes" : ["$cn"],
+#    },
+#  ],
 #}
+
   attributeMap:
-    description: Represent relatioonships between attributes in two attribute profiles. i.e. eduPerson.givenName <-> eIDAS
+    description: Represent semantic equivalence relationships between attribute groups. Groups can be either single attributes or formed by regexp transformation (match and replace) of the result of concatenation of attributes and literal strings.
     type: object
     properties:
-      keyProfile:
+      description:
+        description: Name or explain the mapping
         type: string
-        description: Name of the attribute profile specified in the keys
-        example: "eIDAS"
-      valueProfile:
-        type: string
-        description: Name of the attribute profile specified in the values
-        example: "eduPerson"
-      mappings:
-        type: object
-        additionalProperties:
-          type: array
-          example: "CurrentGivenName"
-          items:
-            type: string
-            example: ["givenName", "displayName","cn"]
+      pairings:
+        description: A list of groups that are semantically equivalent
+        type: array
+        items:
+          type: object
+          properties:
+            profile:
+              description: Attribute profile which this group belongs to
+              example: eIDAS
+              type: string
+            issuer:
+              description: ID of the entity that emmitted the attributes on this group. If specified, this equivalence will only apply to attributes coming from the correspondign issuer
+              example: http://clave.redsara.es/
+              type: string
+            attributes:
+              description: Array of attribute names (can be a single one) and/or string literals that will concatenate to form the group. Items starting with $ will be considered as attribute names, and will be substitutied by its value. Literal strings starting with $ must escape it "\$"
+              example:  ["$surname1","#","$surname2"]
+              type: array
+              items:
+                type: string
+            regexp:
+              description: If set, the result of the concatenation will be matched towards this PERL compatible regexp (no match will return an empty string). Can be used to transform or to ensure a given format.
+              example: "^(-,a-zA-Z)+#(-,a-zA-Z)+$"
+              type: string
+            replace:
+              description: If set, this is what will be returned after matching the regexp. Sub-match numeric placeholders can be used as in a PERL compatible regexp.
+              example: \1 \2
+              type: string 
              
     
   attributeMapList:

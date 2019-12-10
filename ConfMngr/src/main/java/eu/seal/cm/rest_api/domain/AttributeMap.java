@@ -14,101 +14,74 @@ package eu.seal.cm.rest_api.domain;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
-import javax.validation.constraints.*;
 
 /**
- * Represent relatioonships between attributes in two attribute profiles. i.e. eduPerson.givenName &lt;-&gt; eIDAS
+ * Represent semantic equivalence relationships between attribute groups. Groups can be either single attributes or formed by regexp transformation (match and replace) of the result of concatenation of attributes and literal strings.
  */
-@ApiModel(description = "Represent relatioonships between attributes in two attribute profiles. i.e. eduPerson.givenName <-> eIDAS")
+@ApiModel(description = "Represent semantic equivalence relationships between attribute groups. Groups can be either single attributes or formed by regexp transformation (match and replace) of the result of concatenation of attributes and literal strings.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-11-28T12:17:08.653Z")
 
 public class AttributeMap   {
-  @JsonProperty("keyProfile")
-  private String keyProfile = null;
+  @JsonProperty("description")
+  private String description = null;
 
-  @JsonProperty("valueProfile")
-  private String valueProfile = null;
-
-  @JsonProperty("mappings")
+  @JsonProperty("pairings")
   @Valid
-  private Map<String, List<String>> mappings = null;
+  private List<AttributeMapPairings> pairings = null;
 
-  public AttributeMap keyProfile(String keyProfile) {
-    this.keyProfile = keyProfile;
+  public AttributeMap description(String description) {
+    this.description = description;
     return this;
   }
 
   /**
-   * Name of the attribute profile specified in the keys
-   * @return keyProfile
+   * Name or explain the mapping
+   * @return description
   **/
-  @ApiModelProperty(example = "eIDAS", value = "Name of the attribute profile specified in the keys")
+  @ApiModelProperty(value = "Name or explain the mapping")
 
 
-  public String getKeyProfile() {
-    return keyProfile;
+  public String getDescription() {
+    return description;
   }
 
-  public void setKeyProfile(String keyProfile) {
-    this.keyProfile = keyProfile;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
-  public AttributeMap valueProfile(String valueProfile) {
-    this.valueProfile = valueProfile;
+  public AttributeMap pairings(List<AttributeMapPairings> pairings) {
+    this.pairings = pairings;
     return this;
   }
 
-  /**
-   * Name of the attribute profile specified in the values
-   * @return valueProfile
-  **/
-  @ApiModelProperty(example = "eduPerson", value = "Name of the attribute profile specified in the values")
-
-
-  public String getValueProfile() {
-    return valueProfile;
-  }
-
-  public void setValueProfile(String valueProfile) {
-    this.valueProfile = valueProfile;
-  }
-
-  public AttributeMap mappings(Map<String, List<String>> mappings) {
-    this.mappings = mappings;
-    return this;
-  }
-
-  public AttributeMap putMappingsItem(String key, List<String> mappingsItem) {
-    if (this.mappings == null) {
-      this.mappings = new HashMap<String, List<String>>();
+  public AttributeMap addPairingsItem(AttributeMapPairings pairingsItem) {
+    if (this.pairings == null) {
+      this.pairings = new ArrayList<AttributeMapPairings>();
     }
-    this.mappings.put(key, mappingsItem);
+    this.pairings.add(pairingsItem);
     return this;
   }
 
   /**
-   * Get mappings
-   * @return mappings
+   * A list of groups that are semantically equivalent
+   * @return pairings
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of groups that are semantically equivalent")
 
   @Valid
 
-  public Map<String, List<String>> getMappings() {
-    return mappings;
+  public List<AttributeMapPairings> getPairings() {
+    return pairings;
   }
 
-  public void setMappings(Map<String, List<String>> mappings) {
-    this.mappings = mappings;
+  public void setPairings(List<AttributeMapPairings> pairings) {
+    this.pairings = pairings;
   }
 
 
@@ -121,14 +94,13 @@ public class AttributeMap   {
       return false;
     }
     AttributeMap attributeMap = (AttributeMap) o;
-    return Objects.equals(this.keyProfile, attributeMap.keyProfile) &&
-        Objects.equals(this.valueProfile, attributeMap.valueProfile) &&
-        Objects.equals(this.mappings, attributeMap.mappings);
+    return Objects.equals(this.description, attributeMap.description) &&
+        Objects.equals(this.pairings, attributeMap.pairings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyProfile, valueProfile, mappings);
+    return Objects.hash(description, pairings);
   }
 
   @Override
@@ -136,9 +108,8 @@ public class AttributeMap   {
     StringBuilder sb = new StringBuilder();
     sb.append("class AttributeMap {\n");
     
-    sb.append("    keyProfile: ").append(toIndentedString(keyProfile)).append("\n");
-    sb.append("    valueProfile: ").append(toIndentedString(valueProfile)).append("\n");
-    sb.append("    mappings: ").append(toIndentedString(mappings)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    pairings: ").append(toIndentedString(pairings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
