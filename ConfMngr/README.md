@@ -25,6 +25,6 @@ The following environment variables are to be set:
             - SSL_CERT_ALIAS
   
 
-For testing, try https://localhost:8083/swagger-ui.html          
+For testing, try https://localhost:8083/swagger-ui.html  (when seal.cm.httpsig.enabled: true)        
 
 
