@@ -27,7 +27,6 @@ import javax.validation.Valid;
  */
 @ApiModel(description = "Contents of an attribute item.")
 @Validated
-@javax.annotation.Generated(value = "eu.seal.cm.codegen.languages.SpringCodegen", date = "2018-12-10T12:53:06.421Z")
 
 public class AttributeType   {
   @JsonProperty("name")

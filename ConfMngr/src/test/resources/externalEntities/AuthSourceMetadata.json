@@ -1,0 +1,20 @@
+[{
+    "entityId" : "eIDAS",
+    "defaultDisplayName" : null,
+    "displayNames" : null,
+    "logo" : null,
+    "microservice" : [
+        "eIDASms_0001"
+    ]
+},
+{
+    "entityId" : "eduGAIN",
+    "defaultDisplayName" : null,
+    "displayNames" : null,
+    "logo" : null,
+    "microservice" : [
+        "eduGAINms_0001","eduGAINms_0002"
+    ]
+ }
+
+]

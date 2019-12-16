@@ -23,7 +23,6 @@ import eu.seal.cm.rest_api.domain.AttributeType;
  * AttributeTypeList
  */
 @Validated
-@javax.annotation.Generated(value = "eu.seal.cm.codegen.languages.SpringCodegen", date = "2018-12-10T12:53:06.421Z")
 
 public class AttributeTypeList extends ArrayList<AttributeType>  {
 

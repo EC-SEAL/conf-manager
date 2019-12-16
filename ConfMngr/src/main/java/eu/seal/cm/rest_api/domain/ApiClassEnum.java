@@ -23,7 +23,7 @@ public enum ApiClassEnum {
   
 //  SP("SP"),
 //  
-//  IDP("IDP"),
+//  IDP("IDP"), TODO: eduGAIN, eIDAS, eMRTD?? or authSource, attrSource??
 //  
 //  AP("AP"),
 //  
