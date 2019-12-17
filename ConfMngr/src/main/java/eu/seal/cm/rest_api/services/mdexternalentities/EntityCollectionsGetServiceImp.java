@@ -50,15 +50,24 @@ public class EntityCollectionsGetServiceImp implements EntityCollectionsGetServi
 				  String entityCollection = new String();
 				  unknownKind = false;
 				  // TO BE AWARE of the fileName expected
+				  
+				  if (entityKind.contains ("AUTHSOURCE") || entityKind.contains ("AuthSource") || entityKind.contains ("authsource") || entityKind.contains ("authorizationSource"))
+					  entityCollection = "AUTHSOURCE";
+				  else 
+					  if (entityKind.contains ("ATTRSOURCE") || entityKind.contains ("AttrSource") || entityKind.contains ("attrsource") || entityKind.contains ("attributesSource"))
+						  entityCollection = "ATTRSOURCE";
+				  		
+				  else
+				  
 				  if (entityKind.contains ("SP") || entityKind.contains ("ServiceProvider"))
 					  entityCollection = "SP";
 				  else 
 					  if (entityKind.contains ("rAP") || entityKind.contains ("RemoteAttributeProvider"))
 						  entityCollection = "rAP";
 					  else
-						  if (entityKind.contains ("IdP") || entityKind.contains ("IDP") || entityKind.contains ("IdentityProvider"))
-							  entityCollection = "IdP";
-						  else
+//						  if (entityKind.contains ("IdP") || entityKind.contains ("IDP") || entityKind.contains ("IdentityProvider"))
+//							  entityCollection = "IdP";
+//						  else
 							  if (entityKind.contains ("rGW") || entityKind.contains ("RemoteGateway"))
 								  entityCollection = "rGW";
 							  else 

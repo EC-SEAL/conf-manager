@@ -23,7 +23,7 @@ public enum ApiClassEnum {
   
 //  SP("SP"),
 //  
-//  IDP("IDP"), TODO: eduGAIN, eIDAS, eMRTD?? or authSource, attrSource??
+//  IDP("IDP"), instead: AuthSource, AttrSource
 //  
 //  AP("AP"),
 //  
@@ -31,6 +31,10 @@ public enum ApiClassEnum {
 //  
 //  ACM("ACM"),
   
+  AUTHSOURCE("AUTHSOURCE"), // e.g. eIDAS or eduGAIN
+  
+  ATTRSOURCE("ATTRSOURCE"),	// e.g. eMRTD, eduGAIN, or eIDAS
+	
   SM("SM"),
   
   CM("CM"),
@@ -40,6 +44,8 @@ public enum ApiClassEnum {
   APIGWSP("APIGWSP"), // API Gateway Service Provider
   
   APIGWLK("APIGWLNK"); // API Gateway Linking
+
+	
 
   private String value;
 

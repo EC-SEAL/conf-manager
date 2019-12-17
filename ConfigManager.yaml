@@ -309,6 +309,8 @@ definitions:
       - APIGWLNK
       - SM
       - CM
+      - AUTHSOURCE
+      - ATTRSOURCE
     
   
   # Descriptor Object for an External Entity (data source, authsource)

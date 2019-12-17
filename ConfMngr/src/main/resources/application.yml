@@ -36,8 +36,8 @@ spring.jackson:
 ##
 seal.cm:
 
-  httpsig.enabled: #false # Requests to ConfManager without httpsig signing
-                   true
+  httpsig.enabled: false # Requests to ConfManager without httpsig signing
+                   #true
   
   files.extension: .json
   microservices.file: #/resources/msMetadataList.json
