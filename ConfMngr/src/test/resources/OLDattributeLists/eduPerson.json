@@ -1,21 +1,11 @@
 
+
+
     [
 	{
-		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#eduPersonTargetedID ",
-        "friendlyName"	:"eduPersonTargetedID ", 
-        "encoding"		: "UTF-8", 
-        "isMandatory"	: "false",
-        "values"		: ["string"]
-	},	{
+
 		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#eduPersonAffiliation",
         "friendlyName"	:"eduPersonAffiliation", 
-        "encoding"		: "UTF-8", 
-        "isMandatory"	: "false",
-        "values"		: ["string"]
-	},
-		{
-		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#eduPersonScopedAffiliation",
-        "friendlyName"	:"eduPersonScopedAffiliation", 
         "encoding"		: "UTF-8", 
         "isMandatory"	: "false",
         "values"		: ["string"]
@@ -25,14 +15,14 @@
         "friendlyName"	:"eduPersonPrimaryAffiliation", 
         "encoding"		: "UTF-8", 
         "isMandatory"	: "false",
-        "values"		: "string"
+        "values"		: ["string"]
 	},
 	{
 		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#eduPersonPrincipalName",
         "friendlyName"	:"eduPersonPrincipalName", 
         "encoding"		: "UTF-8", 
         "isMandatory"	: "false",
-        "values"		: "string"
+        "values"		: ["string"]
 
     },
 	{
@@ -48,25 +38,11 @@
         "encoding"		: "UTF-8", 
         "isMandatory"	: "false",
         "values"		: 	
-							[
-							{
-								"ou"	: "string",
-								"o" 	: "string",
-								"dc"	: "string",
-								"c"		: "string"
-							}
-							]
+							["ou","o","dc","c"]
 	},
 	{
 		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#eduPersonUniqueId",
         "friendlyName"	:"eduPersonUniqueId", 
-        "encoding"		: "UTF-8", 
-        "isMandatory"	: "false",
-        "values"		: "string"
-    },
-	{
-		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#cn",
-        "friendlyName"	: "cn", 
         "encoding"		: "UTF-8", 
         "isMandatory"	: "false",
         "values"		: ["string"]
@@ -76,7 +52,7 @@
         "friendlyName"	:"displayName", 
         "encoding"		: "UTF-8", 
         "isMandatory"	: "false",
-        "values"		: "string"
+        "values"		: ["string"]
     },
 	{
 		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#givenName",
@@ -114,4 +90,5 @@
         "values"		: ["string"]
     }
 	]
+
 

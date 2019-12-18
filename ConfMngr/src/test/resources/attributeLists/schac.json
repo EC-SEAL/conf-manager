@@ -1,20 +1,24 @@
-
-
-
     [	
 	{
-		"name" : "https://wiki.refeds.org/download/attachments/1606048/schac-20150413-1.5.0.schema.txt?version=1&modificationDate=1429044813839&api=v2#schacExpiryDate",
+		"name" : "https://www.terena.org/activities/tf-emc2/docs/schac/schac-20110705-1.4.1.schema.txt#schacExpiryDate",
         "friendlyName"	: "schacExpiryDate", 
         "encoding"		: "UTF-8", 
         "isMandatory"	: "false",
-        "values"		: ["string"]
+        "values"		: "string"
     },	
 	{
-		"name" : "https://wiki.refeds.org/download/attachments/1606048/schac-20150413-1.5.0.schema.txt?version=1&modificationDate=1429044813839&api=v2#schacHomeOrganization",
+		"name" : "https://www.terena.org/activities/tf-emc2/docs/schac/schac-20110705-1.4.1.schema.txt#schacHomeOrganization",
         "friendlyName"	: "schacHomeOrganization", 
         "encoding"		: "UTF-8", 
         "isMandatory"	: "false",
-        "values"		: ["string"]
+        "values"		: "string"
+    },	
+	{
+		"name" : "https://www.terena.org/activities/tf-emc2/docs/schac/schac-20110705-1.4.1.schema.txt#schacHomeOrganizationType",
+        "friendlyName"	: "schacHomeOrganizationType", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: "string"
     }
 	]
 
