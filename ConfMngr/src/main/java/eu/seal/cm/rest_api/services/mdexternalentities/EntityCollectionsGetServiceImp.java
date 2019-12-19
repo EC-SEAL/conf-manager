@@ -40,45 +40,43 @@ public class EntityCollectionsGetServiceImp implements EntityCollectionsGetServi
 		
 			if (files != null && files.length != 0) {
 			  String fileName = new String();
-			  Boolean unknownKind;
 			  for (int x=0;x<files.length;x++) {
 				  fileName = files[x];
 				  
 				  String entityKind = new String();
-				  entityKind = fileName.substring (0,fileName.indexOf(".json"));
-				  
-				  String entityCollection = new String();
-				  unknownKind = false;
+				  entityKind = fileName.substring (0,fileName.indexOf("metadata.json"));
 				  // TO BE AWARE of the fileName expected
 				  
-				  if (entityKind.contains ("AUTHSOURCE") || entityKind.contains ("AuthSource") || entityKind.contains ("authsource") || entityKind.contains ("authorizationSource"))
-					  entityCollection = "AUTHSOURCE";
-				  else 
-					  if (entityKind.contains ("ATTRSOURCE") || entityKind.contains ("AttrSource") || entityKind.contains ("attrsource") || entityKind.contains ("attributesSource"))
-						  entityCollection = "ATTRSOURCE";
-				  		
-				  else
+				  switch (entityKind) {
 				  
-				  if (entityKind.contains ("SP") || entityKind.contains ("ServiceProvider"))
-					  entityCollection = "SP";
-				  else 
-					  if (entityKind.contains ("rAP") || entityKind.contains ("RemoteAttributeProvider"))
-						  entityCollection = "rAP";
-					  else
-//						  if (entityKind.contains ("IdP") || entityKind.contains ("IDP") || entityKind.contains ("IdentityProvider"))
-//							  entityCollection = "IdP";
-//						  else
-							  if (entityKind.contains ("rGW") || entityKind.contains ("RemoteGateway"))
-								  entityCollection = "rGW";
-							  else 
-								  if (entityKind.contains ("AP") || entityKind.contains ("LocalAttributeProvider"))
-									  entityCollection = "AP";
-								  else {unknownKind = true; throw new Exception("Unknown kind of entity");}
+				  	case "AUTHSOURCE":
+				  	case "AuthSource":
+				  	case "authsource":
+				  	case "authorizationSource":
+				  	case "authenticationSource":  		
+				  		entityTypes.add("AUTHSOURCE");
+				  		break;
+				  	case "ATTRSOURCE":
+				  	case "AttrSource":
+				  	case "attrsource":
+				  	case "attributesSource":
+				  		entityTypes.add("ATTRSOURCE");
+				  		break;
+				  	case "eIDAS":
+				  	case "EIDAS":
+				  		entityTypes.add("EIDAS");
+				  		break;
+				  	case "eduGAIN":
+				  	case "EDUGAIN":
+				  		entityTypes.add("EDUGAIN");
+				  		break;
+					default:
+						throw new Exception("Unknown kind of entity");
 				  
-				  if (!unknownKind) entityTypes.add(entityCollection);
+				  }
+				  
 			  	}
-			  
-			    
+			  		    
 			}
 			else // Empty directory
 				throw new Exception(Constants.ENTITY_FILES_NOT_FOUND);

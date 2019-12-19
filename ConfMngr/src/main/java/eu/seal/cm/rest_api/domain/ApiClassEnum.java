@@ -21,32 +21,32 @@ import com.fasterxml.jackson.annotation.JsonCreator;
  */
 public enum ApiClassEnum {
   
-//  SP("SP"),
-//  
-//  IDP("IDP"), instead: AuthSource, AttrSource
-//  
-//  AP("AP"),
-//  
-//  GW("GW"),
-//  
-//  ACM("ACM"),
+  SM("SM"), // Session Manager
   
-  AUTHSOURCE("AUTHSOURCE"), // e.g. eIDAS or eduGAIN
+  CM("CM"), // Metadata - Configuration Manager
   
-  ATTRSOURCE("ATTRSOURCE"),	// e.g. eMRTD, eduGAIN, or eIDAS
-	
-  SM("SM"),
+  CL("CL"), // API Gateway Client
   
-  CM("CM"),
+  SPCL("SPCL"), // API Gateway Service Provider
   
-  APIGWCL("APIGWCL"), // API Gateway Client
+  RM("RM"), // Request Manager
   
-  APIGWSP("APIGWSP"), // API Gateway Service Provider
+  SP("SP"), // SP Service
   
-  APIGWLK("APIGWLNK"); // API Gateway Linking
-
-	
-
+  AS("AS"), // Authentication Source
+  
+  IS("IS"), // Identity Source
+  
+  PER("PER"), // Persistence
+  
+  IDBOOT("IDBOOT"), // IDBootstrapping
+  
+  LINK("LINK"), // IDLinking
+  
+  LINKAPP ("LINKAPP"), // API Gateway Link
+  
+  REVOKED("REVOKED"); // Revocation
+  
   private String value;
 
   ApiClassEnum(String value) {
