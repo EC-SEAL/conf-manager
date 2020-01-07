@@ -304,13 +304,19 @@ definitions:
   apiClassEnum:
     type: string
     enum:
-      - APIGWCL
-      - APIGWSP
-      - APIGWLNK
-      - SM
-      - CM
-      - AUTHSOURCE
-      - ATTRSOURCE
+      - SM # Session Manager
+      - CM # Metadata - Configuration Manager
+      - CL # API Gateway Client
+      - SPCL # API Gateway Service Provider
+      - RM # Request Manager
+      - SP # SP Service
+      - AS # Authentication Source
+      - IS # Identity Source
+      - PER # Persistence
+      - IDBOOT # IDBootstrapping
+      - LINK # IDLinking
+      - LINKAPP # API Gateway Link
+      - REVOKED # Revocation
     
   
   # Descriptor Object for an External Entity (data source, authsource)

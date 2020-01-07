@@ -34,7 +34,7 @@ public class ClassMicroservicesGetServiceImp implements ClassMicroservicesGetSer
 	public MsMetadataList classMicroservicesGet (String apiClassId) throws Exception {
 		// TO BE AWARE of the fileName expected!!!
 		
-		MsMetadataList classMicroservices;
+		MsMetadataList classMicroservices = null;
 		String fileStringValue;
 		
 		try {
@@ -47,7 +47,7 @@ public class ClassMicroservicesGetServiceImp implements ClassMicroservicesGetSer
 			allMicroservices = gson.fromJson(fileStringValue, MsMetadataList.class);
 			
 			classMicroservices = allMicroservices.getClassMs (apiClassId);
-			if (classMicroservices.isEmpty())
+			if ((classMicroservices == null) || (classMicroservices.isEmpty()))
 				throw new Exception(Constants.MS_NOT_FOUND);
 			
 		

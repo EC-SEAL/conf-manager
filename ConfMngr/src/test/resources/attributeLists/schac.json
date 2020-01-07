@@ -4,21 +4,21 @@
         "friendlyName"	: "schacExpiryDate", 
         "encoding"		: "UTF-8", 
         "isMandatory"	: "false",
-        "values"		: "string"
+        "values"		: ["string"]
     },	
 	{
 		"name" : "https://www.terena.org/activities/tf-emc2/docs/schac/schac-20110705-1.4.1.schema.txt#schacHomeOrganization",
         "friendlyName"	: "schacHomeOrganization", 
         "encoding"		: "UTF-8", 
         "isMandatory"	: "false",
-        "values"		: "string"
+        "values"		: ["string"]
     },	
 	{
 		"name" : "https://www.terena.org/activities/tf-emc2/docs/schac/schac-20110705-1.4.1.schema.txt#schacHomeOrganizationType",
         "friendlyName"	: "schacHomeOrganizationType", 
         "encoding"		: "UTF-8", 
         "isMandatory"	: "false",
-        "values"		: "string"
+        "values"		: ["string"]
     }
 	]
 

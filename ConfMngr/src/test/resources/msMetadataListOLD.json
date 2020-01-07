@@ -7,7 +7,7 @@
     "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
     "publishedAPI": [
       {
-        "apiClass": "PER",
+        "apiClass": "AP",
         "apiCall": "query",
         "apiConnectionType": "post",
         "apiEndpoint": "https://stork.uji.es/clave1b/module.php/esmo/ap/query.php/saml2"
@@ -77,13 +77,13 @@
     "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
     "publishedAPI": [
       {
-        "apiClass": "SPCL",
+        "apiClass": "ACM",
         "apiCall": "acmRequest",
         "apiConnectionType": "post",
         "apiEndpoint": "https://vm.esmo-project.eu:8073/acm/request"
       },
       {
-        "apiClass": "SPCL",
+        "apiClass": "ACM",
         "apiCall": "acmResponse",
         "apiConnectionType": "post",
         "apiEndpoint": "https://vm.esmo-project.eu:8073/acm/response"
@@ -98,13 +98,13 @@
     "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
     "publishedAPI": [
       {
-        "apiClass": "CL",
+        "apiClass": "GW",
         "apiCall": "query",
         "apiConnectionType": "post",
         "apiEndpoint": "https://vm.esmo-project.eu:8053/gw/query"
       },
       {
-        "apiClass": "CL",
+        "apiClass": "GW",
         "apiCall": "handleResponse",
         "apiConnectionType": "post",
         "apiEndpoint": "https://vm.esmo-project.eu:8053/gw/response"
@@ -189,7 +189,7 @@
     "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
     "publishedAPI": [
       {
-        "apiClass": "PER",
+        "apiClass": "AP",
         "apiCall": "query",
         "apiConnectionType": "post",
         "apiEndpoint": "http://vm.esmo-project.eu:8113/ap/query"

@@ -49,7 +49,12 @@
         "isMandatory"	: "false",
         "values"		: 	
 							[
-							"TOASK"
+							{
+								"ou"	: "string",
+								"o" 	: "string",
+								"dc"	: "string",
+								"c"		: "string"
+							}
 							]
 	},
 	{

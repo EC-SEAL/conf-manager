@@ -52,7 +52,7 @@ public class ClassMicroservicesGetApiController implements ClassMicroservicesGet
 
     
     public ResponseEntity<MsMetadataList> classMicroservicesGet(@ApiParam(value = "",required=true, 
-    		allowableValues = "SP, IDP, AP, GW, ACM, SM, CM") @PathVariable("apiClass") String apiClass) {
+    		allowableValues = "SM, CM, CL, SPCL, RM, SP, AS, IS, PER, IDBOOT, LINK, LINKAPP, REVOKED") @PathVariable("apiClass") String apiClass) {
     		
         
 //    public ResponseEntity<MsMetadataList> classMicroservicesGet( 	@RequestParam(value = "apiClass",required=true) String apiClass ) {

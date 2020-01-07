@@ -36,7 +36,7 @@ spring.jackson:
 ##
 seal.cm:
 
-  #httpsig.enabled: #false # Requests to ConfManager without httpsig signing
+  #httpsig.enabled: false # Requests to ConfManager without httpsig signing
                    #true IT DOES NOT WORK
   
   files.extension: .json
