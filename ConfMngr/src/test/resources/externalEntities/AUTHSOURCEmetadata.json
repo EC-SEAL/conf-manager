@@ -4,7 +4,7 @@
     "displayNames" : null,
     "logo" : null,
     "microservice" : [
-        "eIDASms_0001"
+       "SAMLms_0001", "eIDASms_0001"
     ]
 },
 {

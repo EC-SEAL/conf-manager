@@ -2,7 +2,7 @@
     [
 	{
 		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#eduPersonTargetedID ",
-        "friendlyName"	:"eduPersonTargetedID ", 
+        "friendlyName"	:"eduPersonTargetedID", 
         "encoding"		: "UTF-8", 
         "isMandatory"	: "false",
         "values"		: ["string"]
@@ -47,10 +47,7 @@
         "friendlyName"	:"eduPersonOrgUnitDN", 
         "encoding"		: "UTF-8", 
         "isMandatory"	: "false",
-        "values"		: 	
-							[
-							"TOASK"
-							]
+        "values"		: ["ou","o","dc","c"]
 	},
 	{
 		"name" : "https://software.internet2.edu/eduperson/internet2-mace-dir-eduperson-201602.html#eduPersonUniqueId",

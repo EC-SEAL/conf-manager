@@ -22,5 +22,5 @@ ADD cm-0.0.1.jar cm.jar
 RUN sh -c 'touch /cm.jar'
 ENV JAVA_OPTS=""
 ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /cm.jar" ]
-#EXPOSE 8083
-EXPOSE 8080
+EXPOSE 8083
+#EXPOSE 8080

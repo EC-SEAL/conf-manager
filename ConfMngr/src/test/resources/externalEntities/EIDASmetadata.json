@@ -27,7 +27,7 @@
             "keyType" : "X509Certificate"
         }
     ],
-    "claims" : null,
+    "claims" : ["FamilyName","FirstName","DateOfBirth","PersonIdentifier","CurrentAddress"],
     "otherData" : {
         "subdialect" : null,
         "redirect.sign" : true,
