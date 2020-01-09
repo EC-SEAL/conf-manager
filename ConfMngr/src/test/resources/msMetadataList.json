@@ -1,0 +1,199 @@
+ [
+  {
+    "msId": "SAMLms_0001",
+    "authorisedMicroservices": [
+      "ACMms001"
+    ],
+    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+    "publishedAPI": [
+      {
+        "apiClass": "PER",
+        "apiCall": "query",
+        "apiConnectionType": "post",
+        "apiEndpoint": "https://stork.uji.es/clave1b/module.php/esmo/ap/query.php/saml2"
+      },
+      {
+        "apiClass": "SP",
+        "apiCall": "handleResponse",
+        "apiConnectionType": "post",
+        "apiEndpoint": "https://stork.uji.es/esmoSPms/module.php/esmo/sp/response.php/esmo"
+      },
+      {
+        "apiClass": "AS",
+        "apiCall": "authenticate",
+        "apiConnectionType": "post",
+        "apiEndpoint": "https://stork.uji.es/clave1b/module.php/esmo/idp/authenticate.php/eidas"
+      }
+    ]
+  },
+  {
+    "msId": "CMms001",
+    "authorisedMicroservices": [
+      "SAMLms_0001",
+      "SMms001",
+      "ACMms001",
+      "GW2GWms001",
+      "IDPms001",
+	  "APms001"
+    ],
+    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+    "publishedAPI": [
+      {
+        "apiClass": "CM",
+        "apiCall": "microservices",
+        "apiConnectionType": "get",
+        "apiEndpoint": "https://vm.esmo-project.eu:8083/cm/metadata/microservices"
+      },
+      {
+        "apiClass": "CM",
+        "apiCall": "externalEntities",
+        "apiConnectionType": "get",
+        "apiEndpoint": "https://vm.esmo-project.eu:8083/cm/metadata/externalEntities"
+      },
+      {
+        "apiClass": "CM",
+        "apiCall": "attributes",
+        "apiConnectionType": "get",
+        "apiEndpoint": "https://vm.esmo-project.eu:8083/cm/metadata/attributes"
+      },
+      {
+        "apiClass": "CM",
+        "apiCall": "internal",
+        "apiConnectionType": "get",
+        "apiEndpoint": "https://vm.esmo-project.eu:8083/cm/metadata/internal"
+      }
+    ]
+  },
+  {
+    "msId": "ACMms001",
+    "authorisedMicroservices": [
+      "SAMLms_0001",
+      "GW2GWms001",
+      "SMms001",
+      "CMms001",
+	  "APms001",
+	  "IdPms001"
+    ],
+    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+    "publishedAPI": [
+      {
+        "apiClass": "SPCL",
+        "apiCall": "acmRequest",
+        "apiConnectionType": "post",
+        "apiEndpoint": "https://vm.esmo-project.eu:8073/acm/request"
+      },
+      {
+        "apiClass": "SPCL",
+        "apiCall": "acmResponse",
+        "apiConnectionType": "post",
+        "apiEndpoint": "https://vm.esmo-project.eu:8073/acm/response"
+      }
+    ]
+  },
+  {
+    "msId": "GW2GWms001",
+    "authorisedMicroservices": [
+      "ACMms001"
+    ],
+    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+    "publishedAPI": [
+      {
+        "apiClass": "CL",
+        "apiCall": "query",
+        "apiConnectionType": "post",
+        "apiEndpoint": "https://vm.esmo-project.eu:8053/gw/query"
+      },
+      {
+        "apiClass": "CL",
+        "apiCall": "handleResponse",
+        "apiConnectionType": "post",
+        "apiEndpoint": "https://vm.esmo-project.eu:8053/gw/response"
+      }
+    ]
+  },
+  {
+    "msId": "SMms001",
+    "authorisedMicroservices": [
+      "ACMms001",
+      "IDPms001",
+      "SAMLms_0001",
+      "GW2GWms001",
+	  "APms001"
+    ],
+    "rsaPublicKeyBinary": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkvZf4Lm7dqp17tk/ICI+cCilI3yLfQraHy4pxFYDNn29l9eHnYRFnN9jBKKvOzSxf2zQkigNcHhIi96s7G4/xPL3rVaYepp/xfCKn5vkZeqg1PFOE0HqDKCnIbLxNdnHYDLICQrd1PRTdFHnwRpLouF6B3PCZpQL5XxX3WFzg2KZ2U1NIdVLJjWb3AY1SJ4kIYAOIwn6AZQPum4i5G4M9QQj3KGl164007TUx27rxzBVILpm+knxYjUiipqZ/5kiDdTxYBPR0qDVIhSl3hk9RhSI95s7unrll8rb3E8w1ORrfTQNg1UlpGgww3jZi3GLScLEK3ghwg5H5gL/2SSiEwIDAQAB",
+    "publishedAPI": [
+      {
+        "apiClass": "SM",
+        "apiCall": "endSession",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://vm.esmo-project.eu:8090/sm/endSession"
+      },
+      {
+        "apiClass": "SM",
+        "apiCall": "generateToken",
+        "apiConnectionType": "get",
+        "apiEndpoint": "http://vm.esmo-project.eu:8090/sm/generateToken"
+      },
+      {
+        "apiClass": "SM",
+        "apiCall": "getSession",
+        "apiConnectionType": "get",
+        "apiEndpoint": "http://vm.esmo-project.eu:8090/sm/getSession"
+      },
+      {
+        "apiClass": "SM",
+        "apiCall": "getSessionData",
+        "apiConnectionType": "get",
+        "apiEndpoint": "http://vm.esmo-project.eu:8090/sm/getSessionData"
+      },
+      {
+        "apiClass": "SM",
+        "apiCall": "startSession",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://vm.esmo-project.eu:8090/sm/startSession"
+      },
+      {
+        "apiClass": "SM",
+        "apiCall": "updateSessionData",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://vm.esmo-project.eu:8090/sm/updateSessionData"
+      },
+      {
+        "apiClass": "SM",
+        "apiCall": "validateToken",
+        "apiConnectionType": "get",
+        "apiEndpoint": "http://vm.esmo-project.eu:8090/sm/validateToken"
+      }
+    ]
+  },
+  {
+    "msId": "eduGAINms_0001",
+    "authorisedMicroservices": [
+      "ACMms001"
+    ],
+    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+    "publishedAPI": [
+      {
+        "apiClass": "AS",
+        "apiCall": "authenticate",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://vm.esmo-project.eu:8091/fakeSm/idp/authenticate"
+      }
+    ]
+  },
+    {
+    "msId": "APms001",
+    "authorisedMicroservices": [
+      "ACMms001"
+    ],
+    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+    "publishedAPI": [
+      {
+        "apiClass": "PER",
+        "apiCall": "query",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://vm.esmo-project.eu:8113/ap/query"
+      }
+    ]
+  }
+]

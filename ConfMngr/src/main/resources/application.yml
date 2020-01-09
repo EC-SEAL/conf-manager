@@ -1,0 +1,97 @@
+###
+# Copyright © 2019  Atos Spain SA. All rights reserved.
+# This file is part of SEAL Configuration Manager (SEAL ConfMngr).
+# SEAL ConfMngr is free software: you can redistribute it and/or modify it under the terms of EUPL 1.2.
+# THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT ANY WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+# INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT, 
+# IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+# DAMAGES OR OTHER LIABILITY, WHETHER IN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+# See README file for the full disclaimer information and LICENSE file for full license information in the project root.
+#
+# @author Atos Research and Innovation, Atos SPAIN SA
+###
+
+springfox:
+  documentation.swagger.v2.path: /api-docs
+server:
+  #contextPath: /cm
+  port: 8083
+  port.http: 8080  
+        #8090
+  ssl:
+    enabled: true 
+             
+    key-store: ${SSL_KEYSTORE_PATH}
+    key-store-password: ${SSL_STORE_PASS}
+    key-password: ${SSL_KEY_PASS}
+    key-alias: ${SSL_CERT_ALIAS}
+spring.jackson:
+  date-format: eu.seal.cm.RFC3339DateFormat
+  serialization.WRITE_DATES_AS_TIMESTAMPS: false
+
+##
+## SEAL configuration manager
+##
+seal.cm:
+
+  #httpsig.enabled: false # Requests to ConfManager without httpsig signing
+                   #true IT DOES NOT WORK
+  
+  files.extension: .json
+  microservices.file: #/resources/msMetadataList.json
+                      src/test/resources/msMetadataList.json
+  attributes.path: #/resources/attributeLists/
+                   src/test/resources/attributeLists/
+
+  externalentities:
+    path: #/resources/externalEntities/
+          src/test/resources/externalEntities/
+    file:
+      secondpart: metadata.json
+#      firstpart:
+#        sp: SP
+#        ap: AP
+#        idp: IdP
+#        rap: rAP
+#        rgw: rGW
+
+  internal:
+    path: #/resources/internal/
+          src/test/resources/internal/
+    file: 
+      secondpart: _config.json
+#      firstpart:
+#        lgw: LGW
+
+  getEsmoMetadataPath: /ewp/seal-metadata/
+
+
+##
+## EWP
+##Entities
+
+  ewp:
+    enabled: false
+             #true
+    fixedRate.in.milliseconds: 360000  # 6min; autoRefresh of the Registry is every 5min
+    path: #/resources
+          src/test/resources
+    manifest: ewp-manifest.xml
+    registry:
+      autoRefresh: true
+      url: docker-demo.fsat.no/ewp
+           #dev-registry.erasmuswithoutpaper.eu
+    gw.file: internal/LGW_config.json
+    aps.file: externalEntities/APmetadata.json
+    esmo.manifest: seal-manifest.json
+    
+
+remote.cm.ewp:
+  gws.file: externalEntities/rGWmetadata.json    #seal-manifest-remote-gateways.json
+  aps.file: externalEntities/rAPmetadata.json    #seal-manifest-remote-aps.json
+      
+    
+
+    

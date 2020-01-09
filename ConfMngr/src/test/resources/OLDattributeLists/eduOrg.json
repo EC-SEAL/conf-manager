@@ -1,0 +1,39 @@
+
+    [	
+	{
+		"name" : "https://www.internet2.edu/media/medialibrary/2013/09/04/internet2-mace-dir-eduOrg-200210.pdf#cn",
+        "friendlyName"	: "cn", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: ["string"]
+    },
+	{
+		"name" : "https://www.internet2.edu/media/medialibrary/2013/09/04/internet2-mace-dir-eduOrg-200210.pdf#eduOrgHomePageURI",
+        "friendlyName"	: "eduOrgHomePageURI", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: ["string"]
+    },	
+	{
+		"name" : "https://www.internet2.edu/media/medialibrary/2013/09/04/internet2-mace-dir-eduOrg-200210.pdf#eduOrgLegalName",
+        "friendlyName"	: "eduOrgLegalName", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: ["string"]
+    },	
+	{
+		"name" : "https://www.internet2.edu/media/medialibrary/2013/09/04/internet2-mace-dir-eduOrg-200210.pdf#eduOrgPostalAddress",
+        "friendlyName"	: "eduOrgPostalAddress", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: ["string"]
+    },	
+	{
+		"name" : "https://www.internet2.edu/media/medialibrary/2013/09/04/internet2-mace-dir-eduOrg-200210.pdf#l",
+        "friendlyName"	: "l", 
+        "encoding"		: "UTF-8", 
+        "isMandatory"	: "false",
+        "values"		: ["string"]
+    }
+	]
+

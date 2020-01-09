@@ -1,0 +1,571 @@
+swagger: '2.0'
+info:
+  title: "ConfigManager (SEAL Service Microservice Specification)"
+  version: 0.0.1
+  description: "This document contains the formal specification of Configuration Manager interface in SEAL Service.
+  
+  **Take into account that parameters marked as cookie type, will instead be passed through the session object**
+  "
+   
+
+tags:
+    - name: "ConfigManager"
+      description: ""
+    
+paths:
+
+####### ConfigManager ########
+
+  /metadata/microservices:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the configuration metadata for all microservices.
+      description: Get ...
+      operationId: allMicroservicesGet
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/msMetadataList" 
+  
+  
+  /metadata/microservices/{apiClass}:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the configuration metadata for all microservices of the specified api class.
+      description: Get ...
+      operationId: classMicroservicesGet
+      produces:
+        - "application/json"
+      consumes:
+        - application/json
+      parameters:
+        - name: "apiClass"  
+          in: "path"
+          required: true
+          type: string
+          #schema:
+          #  $ref: '#/definitions/apiClassEnum'
+      
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/msMetadataList"
+        404:
+          description: "Bad microservice type or none found"
+      
+
+  /metadata/externalEntities:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the list of available entity collections
+      description: "Collections like: IDP, SP, AP, GW"
+      operationId: entityCollectionsGet
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: array
+            items:
+              type: string
+        404:
+          description: "External entities not found"
+
+  
+  /metadata/externalEntities/{collectionId}:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the list of entityMetadata objects for all the external entities belonging to a determined kind, set or collection.
+      description: Get ...
+      operationId: classEntitiesGet
+      produces:
+        - "application/json"
+      parameters:
+        - name: "collectionId"  
+          in: "path"
+          required: true
+          type: string  #Unbound values, to avoid limiting the number of sets by default
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/entityMetadataList"
+        404:
+          description: "Collection not found"
+  
+  
+  
+  /metadata/externalEntities/{collectionId}/{entityId}:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the entityMetadata for the indicated external entity belonging to a determined set or kind.
+      description: Get ...
+      operationId: entityGet
+      produces:
+      - "application/json"
+      parameters:
+        - name: "collectionId"  
+          in: "path"
+          required: true
+          type: string  #Unbound values, to avoid limiting the number of sets by default
+        - name: "entityId"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/entityMetadata"
+        404:
+          description: "Collection not found"
+
+
+  /metadata/internal:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the list of available internal configurations
+      description: "The metadata collections delivered through this interface should be only for internal use, so only the registered mu¡icroservices should be allowed to query them"
+      operationId: internalConfsGet
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: array
+            items:
+              type: string
+        404:
+          description: "Internal configurations not found"
+
+  
+  /metadata/internal/{confId}:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the configuration data for a given internal entity (the local GW, at the moment).
+      description: Get ...
+      operationId: configurationGet
+      produces:
+        - "application/json"
+      parameters:
+        - name: "confId"  
+          in: "path"
+          required: true
+          type: string  #Unbound values, to avoid limiting the number of sets by default
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/entityMetadata"
+        404:
+          description: "Internal configuration not found"
+          
+          
+          
+  /metadata/attributes/:
+    get:
+      tags:
+        - ConfigManager
+      summary: "Get the list of available attribute profiles: eIDAS, eduPerson, etc."
+      description: Get ...
+      operationId: attributeProfilesGet
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: array
+            items:
+              type: string
+        404:
+          description: "Attribute Profiles not found"
+
+   
+  /metadata/attributes/{attrProfileId}:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the attribute set for the profile just specified.
+      description: Get ...
+      operationId: attributeSetGet
+      produces:
+      - "application/json"
+      parameters:
+        - name: "attrProfileId"  
+          in: "path"
+          required: true
+          type: string #Unbound values, to avoid limiting the number of sets by default
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/attributeTypeList" 
+        404:
+          description: "Attribute Profile not found"
+
+
+  /metadata/attributes/{attrProfileId}/maps:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the list of mappings of attributes with other sets, for the profile just specified.
+      description: Get ...
+      operationId: attributeMappingGet
+      produces:
+      - "application/json"
+      parameters:
+        - name: "attrProfileId"  
+          in: "path"
+          required: true
+          type: string #Unbound values, to avoid limiting the number of sets by default
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/attributeMapList"
+        404:
+          description: "Attribute Profile not found"
+
+
+		  
+definitions:
+
+####### ConfigManager ########
+
+####### ConfigManager ########
+
+  #Descriptor Object of a Microservice
+  msMetadata:
+    description: Specification of a given microservice.
+    type: object
+    properties:
+      msId:
+        description: A unique readable name for a microservice.
+        type: string
+      authorisedMicroservices:
+        type: array
+        description: List of ms identifiers that will be authorised to contact this microservice (will be used by the SM when validating a token).
+        items:
+          type: string
+      rsaPublicKeyBinary:
+        description: Public key of the microservice in B64. The ms will keep their own private key.
+        type: string
+      publishedAPI:
+        type: array
+        description: List of the interfaces api endpoints implememnted by this ms (this will determine which types does the ms belong to)
+        items:
+          $ref: '#/definitions/publishedApiType'
+  
+  
+  publishedApiType:
+    description: Endpoint descriptor, where requests can be made
+    type: object
+    properties:
+      apiClass:
+        $ref: '#/definitions/apiClassEnum'
+      apiCall:
+        type: string
+      apiConnectionType:
+        $ref: '#/definitions/apiConnectionType'
+      apiEndpoint:
+        type: string
+  
+  
+  apiConnectionType:
+    type: string
+    enum:
+      - post
+      - get
+
+      
+  msMetadataList:
+    type: array
+    items: 
+      $ref: '#/definitions/msMetadata'
+      
+
+            
+  #Types of Microservice 
+  #TODO, update
+  apiClassEnum:
+    type: string
+    enum:
+      - SM # Session Manager
+      - CM # Metadata - Configuration Manager
+      - CL # API Gateway Client
+      - SPCL # API Gateway Service Provider
+      - RM # Request Manager
+      - SP # SP Service
+      - AS # Authentication Source
+      - IS # Identity Source
+      - PER # Persistence
+      - IDBOOT # IDBootstrapping
+      - LINK # IDLinking
+      - LINKAPP # API Gateway Link
+      - REVOKED # Revocation
+    
+  
+  # Descriptor Object for an External Entity (data source, authsource)
+  entityMetadata:
+    description: Information about the an external entity
+    type: object
+    properties:
+      entityId:
+        description: Unique identifier of the entity, usually a metadata url
+        type: string
+        example: "https://esmo.uji.es/gw/saml/idp/metadata.xml"
+      defaultDisplayName:
+        description: Name to be displayed on UI, in the default language/encoding
+        type: string
+        example: "UJI Identity Provider"
+      displayNames:
+        description: list of alternative display names, by language or encoding
+        type: object
+        additionalProperties:
+            type: string
+        example: {"ES" : "UJI Proveedor de Identidad","EN" : "UJI Identity Provider"}
+      logo:
+        description: B64 string with an image binary to be displayed at UI
+        type: string
+        example: "AWDGRsFbFDEfFGTNNJKKYGFVFfDDSSSDCCC=="
+      location:
+        description: unspecified list of information items about the physical or political location of the entity, to facilitate discovery
+        type: array
+        items:
+          type: string
+      protocol:
+        description: Which protocol does this entity support (SAML, OIDC, etc.)
+        type: string
+      microservice:
+        description: list of identifiers of microservice able to handle this external entity
+        type: array
+        items:
+          type: string
+      claims:
+        description: list of attributes supported/requested by default by this entity
+        type: array
+        items:
+          type: string
+        example: ["displayName","surname","dateOfBirth","eduPersonAffiliation"]
+      endpoints:
+        description: List of service endpoints, where this Entity will accept requests/responses.
+        type: array
+        items:
+          $ref: '#/definitions/endpointType'
+      securityKeys:
+        description: List of keys held by this entity
+        type: array
+        items:
+          $ref: '#/definitions/securityKeyType'
+      encryptResponses:
+        description: whether this entity will issue/expect encrypted responses
+        type: boolean
+        example: false
+      supportedEncryptionAlg:
+        description: list of supported encryption algorithms
+        type: array
+        items:
+          type: string
+        example: ["AES256","AES512"]
+      signResponses:
+        description: whether this entity will issue/expect signed responses
+        type: boolean
+        example: true
+      supportedSigningAlg:
+        description: list of supported signing algorithms
+        type: array
+        items:
+          type: string
+        example: ["RSA-SHA256"]
+      otherData:
+        description: Dictionary of additional fields, specific for a certain entity type or protocol
+        type: object
+        additionalProperties: true   #Indicates free-form object
+        example: ["attributeMappingToEIDAS" : {"displayName" : "CurrentGivenName", "surname" : "CurrentFamilyName"}]
+ 
+ 
+  entityMetadataList:
+     type: array
+     items: 
+       $ref: '#/definitions/entityMetadata'
+      
+  
+    
+  endpointType:
+    description: Endpoint descriptor, where requests can be made or responses sent.
+    type: object
+    properties:
+      type:
+        description: String identifying the kind of endpoint (depends on each protocol)
+        type: string
+        example: "SSOService"
+      method: 
+        description: String identifying the method to access the endpoint (depends on each protocol, i.e. HTTP-POST).
+        type: string
+        example: "HTTP-POST"
+      url:
+        description: Access url of the endpoint 
+        type: string
+        example: "https://esmo.uji.es/gw/saml/idp/SSOService.php"
+
+        
+  securityKeyType:
+    description: Descriptor of a key or certificate.
+    type: object
+    properties:
+      keyType:
+        description: String identifying the kind of key
+        type: string
+        example: "RSAPublicKey"
+      usage: 
+        description: To which use is this key intended.
+        type: string
+        enum:
+            - signing
+            - encryption
+        example: "signing"
+      key:
+        description: B64 string representing the key binary 
+        type: string
+        example: "MDAACaFgw...xFgy="
+
+
+
+        
+
+        
+  attributeType:
+    description: Contents of an attribute item.
+    type: object
+    properties:
+      name:
+        description: Unique class identifier of the attribute
+        type: string
+        example: "http://eidas.europa.eu/attributes/naturalperson/CurrentGivenName"
+      friendlyName:
+        description: Class identifier of the attribute (short version, might have collisions)
+        type: string
+        example: "CurrentGivenName"
+      encoding:
+        description: String identifying the encoding method:"UTF-8" , "BASE64", etc.
+        type: string
+        example: "plain"
+      language:
+        description: String identifying the language code of the value contents
+        type: string
+        example: "ES_es"
+      isMandatory:
+        description: To mark the mandatoriness of the attribute.
+        type: boolean
+        example: true
+      values:
+        description: List of values for the attribute
+        type: array
+        items:
+          type: string
+        example: ["JOHN"]
+
+
+  attributeTypeList:
+      type: array
+      items: 
+        $ref: '#/definitions/attributeType'
+
+
+#Paco's email 05.12.2019
+# Two examples:
+#{
+#  "description": "eIDAS to eduPerson fake mapping, showing both concatenation and transformation in one side",
+#  "pairings": [
+#    {
+#      "profile" :  "eIDAS",
+#      "issuer" : "http://clave.redsara.es/",
+#      "attributes" : ["$surnames"],
+#    },
+#    {
+#      "profile" :  "eduPerson",
+#      "attributes" : ["$surname1","#","$surname2"],
+#      "regexp" : "^(-,a-zA-Z)+#(-,a-zA-Z)+$",
+#      "replace" : "\1 \2"
+#    },
+#  ],
+#},
+#
+#{
+#  "description": "Basic mapping, also inaccurate, but to show the options",
+#  "pairings": [
+#    {
+#      "profile" :  "eIDAS",
+#      "attributes" : ["$CurrentGivenName"],
+#    },
+#    {
+#      "profile" :  "eduPerson",
+#      "attributes" : ["$givenName"],
+#    },
+#    {
+#      "profile" :  "eduPerson",
+#      "attributes" : ["$displayName"],
+#    },
+#    {
+#      "profile" :  "eduPerson",
+#      "attributes" : ["$cn"],
+#    },
+#  ],
+#}
+
+  attributeMap:
+    description: Represent semantic equivalence relationships between attribute groups. Groups can be either single attributes or formed by regexp transformation (match and replace) of the result of concatenation of attributes and literal strings.
+    type: object
+    properties:
+      description:
+        description: Name or explain the mapping
+        type: string
+      pairings:
+        description: A list of groups that are semantically equivalent
+        type: array
+        items:
+          type: object
+          properties:
+            profile:
+              description: Attribute profile which this group belongs to
+              example: eIDAS
+              type: string
+            issuer:
+              description: ID of the entity that emmitted the attributes on this group. If specified, this equivalence will only apply to attributes coming from the correspondign issuer
+              example: http://clave.redsara.es/
+              type: string
+            attributes:
+              description: Array of attribute names (can be a single one) and/or string literals that will concatenate to form the group. Items starting with $ will be considered as attribute names, and will be substitutied by its value. Literal strings starting with $ must escape it "\$"
+              example:  ["$surname1","#","$surname2"]
+              type: array
+              items:
+                type: string
+            regexp:
+              description: If set, the result of the concatenation will be matched towards this PERL compatible regexp (no match will return an empty string). Can be used to transform or to ensure a given format.
+              example: "^(-,a-zA-Z)+#(-,a-zA-Z)+$"
+              type: string
+            replace:
+              description: If set, this is what will be returned after matching the regexp. Sub-match numeric placeholders can be used as in a PERL compatible regexp.
+              example: \1 \2
+              type: string 
+             
+    
+  attributeMapList:
+    type: array
+    items: 
+      $ref: '#/definitions/attributeMap'
+    
