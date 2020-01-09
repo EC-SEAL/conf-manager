@@ -1,5 +1,5 @@
 # conf-manager
-Configuration Manager
+Configuration Manager microservice
 
 ## Overview  
 
@@ -18,7 +18,7 @@ The following environment variables are to be set:
             - SSL_KEY_PASS
             - SSL_CERT_ALIAS
 
-##Configuration files
+## Configuration files
 
 A keystore.jks is provided in the **/resources/testKeys** directory.
 
@@ -28,17 +28,17 @@ The json files describing the different **attribute schemas**, are put at **/res
 
 The json files with the **external entities** are found at **/resources/externalEntities**. Some examples are deployed: ATTRSOURCEmetadata.json, AUTHSOURCEmetadata.json, EDUGAINmetadata.json, EIDASmetadata.json. 
 
-The json file with the **internal** configuration can be found at **/resources/internal**. A LGW_config.json is deployed. TO BE REMOVED...
+The json file with the *internal* configuration can be found at */resources/internal*. A LGW_config.json is deployed. [TO BE REMOVED]
 
 Customize the above files before starting your CM. If the CM is running already, to change those data:
 ```
 sudo docker cp /yourDirectory/yourConfData/msMetadataList.json confMngr_ps_num:/resources/
-sudo docker cp /yourDirectory/yourConfData/SPmetadata.json confMngr_ps_num:/resources/externalEntities
+sudo docker cp /yourDirectory/yourConfData/EIDASmetadata.json confMngr_ps_num:/resources/externalEntities
 etc.
 ```
 
 
-##Docker container: mvjatos/seal-cm (check for the current version)
+## Docker container: mvjatos/seal-cm (check for the current version)
 
 The following versions are available:
 
@@ -49,7 +49,7 @@ The following versions are available:
 
 
 
-##docker-compose example
+## docker-compose example
 
 ```
 ConfManager:
