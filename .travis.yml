@@ -9,6 +9,8 @@ jobs:
     - stage : Test
       
       script:
+      
+      #/home/travis/.m2/repository/eu/seal/cm/0.0.1/cm-0.0.1.jar
         - mvn clean install
 
     - stage: VM
