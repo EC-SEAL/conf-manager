@@ -18,8 +18,8 @@ VOLUME /tmp
 #COPY ./resources/attributeLists/* /resources/attributeLists/
 #COPY ./resources/externalEntities/* /resources/externalEntities/
 #COPY ./resources/internal/* /resources/internal/
-ADD cm-0.0.1.jar cm.jar
-RUN sh -c 'touch /cm.jar'
+ADD cm-0.0.1.jar seal-cm.jar
+RUN sh -c 'touch /seal-cm.jar'
 ENV JAVA_OPTS=""
 ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /cm.jar" ]
 EXPOSE 8083
