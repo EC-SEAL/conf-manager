@@ -11,7 +11,7 @@ jobs:
         - mvn install
 
     - stage: VM
-      if: type != pull_request AND(branch = master OR branch = development OR branch = interface)
+      if: type != pull_request AND (branch = master OR branch = development OR branch = interface)
       language: java
       before_script:
       - 'if [ "${TRAVIS_BRANCH}" = "development" ]; then

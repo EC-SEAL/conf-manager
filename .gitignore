@@ -1,11 +1,10 @@
-/ConfMngr/.settings/
-/ConfMngr/.swagger-codegen/
-/ConfMngr/target/
-/ConfMngr/.classpath
-/ConfMngr/.project
-/ConfMngr/.springBeans
-/ConfMngr/.swagger-codegen-ignore
+
+.classpath
+.project
+.springBeans
 
 /.metadata/
 /.recommenders/
+/.settings/
 /RemoteSystemsTempFiles/
+/target/
