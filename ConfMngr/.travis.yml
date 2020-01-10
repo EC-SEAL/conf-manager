@@ -22,5 +22,5 @@ jobs:
         export CONTAINER_TAG=test;'
       script:
         - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-        - docker build -t mvjatos/seal-cm:${CONTAINER_TAG} ./ConfMngr
+        - docker build -t mvjatos/seal-cm:${CONTAINER_TAG} .
         - docker push mvjatos/seal-cm:${CONTAINER_TAG}
