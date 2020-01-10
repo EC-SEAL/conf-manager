@@ -88,11 +88,18 @@
 	    <groupId>com.google.code.gson</groupId>
 	    <artifactId>gson</artifactId>
 	</dependency> 
-        <dependency>
-	    	<groupId>eu.erasmuswithoutpaper</groupId>
-	    	<artifactId>ewp-registry-client</artifactId>
-	    	<version>1.6.1-SNAPSHOT</version>
-        </dependency>
+	<dependency>
+	    <groupId>eu.erasmuswithoutpaper</groupId>
+	    <artifactId>ewp-registry-client</artifactId>
+	    <version>1.6.1-SNAPSHOT</version>
+	    <scope>system</scope>
+	    <systemPath>${project.basedir}/libs/ewp-registry-client-1.6.1-SNAPSHOT.jar</systemPath>
+	</dependency> 
+<!--         <dependency> -->
+<!-- 	    	<groupId>eu.erasmuswithoutpaper</groupId> -->
+<!-- 	    	<artifactId>ewp-registry-client</artifactId> -->
+<!-- 	    	<version>1.6.1-SNAPSHOT</version> -->
+<!--         </dependency> -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
