@@ -8,7 +8,8 @@ jobs:
   include:
     - stage : Test
       
-      before_script:
+      #before_script:
+      before_install:
         - mvn install:install-file -Dfile=./libs/ewp-registry-client-1.6.1-SNAPSHOT.jar -DgroupId=eu.erasmuswithoutpaper -Dversion=1.6.1-SNAPSHOT -DartifactId=ewp-registry-client -Dpackaging=jar -DlocalRepositoryPath=/home/travis/.m2/repository
       
       script:
