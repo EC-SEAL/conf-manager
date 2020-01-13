@@ -21,9 +21,9 @@ VOLUME /tmp
 ADD ./target/cm-0.0.1.jar seal-cm.jar
 RUN sh -c 'touch /seal-cm.jar'
 ENV JAVA_OPTS=""
-#ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /seal-cm.jar" ]
-COPY ./scripts/commands.sh /scripts/commands.sh
-RUN ["chmod", "+x", "/scripts/commands.sh"]
-ENTRYPOINT ["/scripts/commands.sh"]
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /seal-cm.jar" ]
+#COPY ./scripts/commands.sh /scripts/commands.sh
+#RUN ["chmod", "+x", "/scripts/commands.sh"]
+#ENTRYPOINT ["/scripts/commands.sh"]
 EXPOSE 8083
 #EXPOSE 8080
