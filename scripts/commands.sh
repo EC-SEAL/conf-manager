@@ -9,21 +9,12 @@
 # DAMAGES OR OTHER LIABILITY, WHETHER IN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # See README file for the full disclaimer information and LICENSE file for full license information in the project root.
+#
+# Temporary: the EWP is NOT being used in SEAL by the moment. TO BE REMOVED.
 ###
 
-FROM openjdk:8-jdk-alpine
-MAINTAINER Atos
-VOLUME /tmp
-#COPY ./resources/* /resources/
-#COPY ./resources/attributeLists/* /resources/attributeLists/
-#COPY ./resources/externalEntities/* /resources/externalEntities/
-#COPY ./resources/internal/* /resources/internal/
-ADD ./target/cm-0.0.1.jar seal-cm.jar
-RUN sh -c 'touch /seal-cm.jar'
-ENV JAVA_OPTS=""
-#ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /seal-cm.jar" ]
-COPY ./scripts/commands.sh /scripts/commands.sh
-RUN ["chmod", "+x", "/scripts/commands.sh"]
-ENTRYPOINT ["/scripts/commands.sh"]
-EXPOSE 8083
-#EXPOSE 8080
+#!/bin/bash
+
+mvn install:install-file -Dfile=./libs/ewp-registry-client-1.6.1-SNAPSHOT.jar -DgroupId=eu.erasmuswithoutpaper -Dversion=1.6.1-SNAPSHOT -DartifactId=ewp-registry-client -Dpackaging=jar -DlocalRepositoryPath=/home/travis/.m2/repository
+
+java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /seal-cm.jar      
