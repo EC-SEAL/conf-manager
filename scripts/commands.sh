@@ -13,6 +13,8 @@
 # Temporary: the EWP is NOT being used in SEAL by the moment. TO BE REMOVED.
 ###
 
+### NOT BEING USED
+
 #!/bin/bash
 
 mvn install:install-file -Dfile=./libs/ewp-registry-client-1.6.1-SNAPSHOT.jar -DgroupId=eu.erasmuswithoutpaper -Dversion=1.6.1-SNAPSHOT -DartifactId=ewp-registry-client -Dpackaging=jar -DlocalRepositoryPath=/home/travis/.m2/repository
