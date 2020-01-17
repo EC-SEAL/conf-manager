@@ -1,0 +1,37 @@
+language: java
+
+stages:
+  - Test
+  - VM
+
+jobs:
+  include:
+    - stage : Test
+      
+      before_install:
+        # Temporary: to be removed
+        - mvn install:install-file -Dfile=./libs/ewp-registry-client-1.6.1-SNAPSHOT.jar -DgroupId=eu.erasmuswithoutpaper -Dversion=1.6.1-SNAPSHOT -DartifactId=ewp-registry-client -Dpackaging=jar -DlocalRepositoryPath=/home/travis/.m2/repository
+      
+      script:
+        #/home/travis/.m2/repository/eu/seal/cm/0.0.1/cm-0.0.1.jar
+        - mvn clean install
+
+    - stage: VM
+      if: type != pull_request AND (branch = master OR branch = development OR branch = interface)
+      language: java
+      before_install:
+           # Temporary: to be removed
+        - mvn install:install-file -Dfile=./libs/ewp-registry-client-1.6.1-SNAPSHOT.jar -DgroupId=eu.erasmuswithoutpaper -Dversion=1.6.1-SNAPSHOT -DartifactId=ewp-registry-client -Dpackaging=jar -DlocalRepositoryPath=/home/travis/.m2/repository
+
+      before_script:
+      - if [ $TRAVIS_BRANCH == "development" ]; then
+            export CONTAINER_TAG="0.0.1";
+        elif [ $TRAVIS_BRANCH == "master" ]; then
+            export CONTAINER_TAG=latest;
+        elif [ $TRAVIS_BRANCH == "interface" ]; then
+            export CONTAINER_TAG=test;
+        fi
+      script:
+        - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+        - docker build -t mvjatos/seal-cm:${CONTAINER_TAG} .
+        - docker push mvjatos/seal-cm:${CONTAINER_TAG}

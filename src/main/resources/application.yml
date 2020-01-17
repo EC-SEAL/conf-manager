@@ -40,14 +40,14 @@ seal.cm:
                    #true IT DOES NOT WORK
   
   files.extension: .json
-  microservices.file: #/resources/msMetadataList.json
-                      src/test/resources/msMetadataList.json
-  attributes.path: #/resources/attributeLists/
-                   src/test/resources/attributeLists/
+  microservices.file: /resources/msMetadataList.json
+                      #src/test/resources/msMetadataList.json
+  attributes.path: /resources/attributeLists/
+                   #src/test/resources/attributeLists/
 
   externalentities:
-    path: #/resources/externalEntities/
-          src/test/resources/externalEntities/
+    path: /resources/externalEntities/
+          #src/test/resources/externalEntities/
     file:
       secondpart: metadata.json
 #      firstpart:
@@ -58,8 +58,8 @@ seal.cm:
 #        rgw: rGW
 
   internal:
-    path: #/resources/internal/
-          src/test/resources/internal/
+    path: /resources/internal/
+          #src/test/resources/internal/
     file: 
       secondpart: _config.json
 #      firstpart:
@@ -76,8 +76,8 @@ seal.cm:
     enabled: false
              #true
     fixedRate.in.milliseconds: 360000  # 6min; autoRefresh of the Registry is every 5min
-    path: #/resources
-          src/test/resources
+    path: /resources
+          #src/test/resources
     manifest: ewp-manifest.xml
     registry:
       autoRefresh: true

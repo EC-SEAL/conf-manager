@@ -14,13 +14,20 @@
 FROM openjdk:8-jdk-alpine
 MAINTAINER Atos
 VOLUME /tmp
-#COPY ./resources/* /resources/
-#COPY ./resources/attributeLists/* /resources/attributeLists/
-#COPY ./resources/externalEntities/* /resources/externalEntities/
-#COPY ./resources/internal/* /resources/internal/
-ADD cm-0.0.1.jar cm.jar
-RUN sh -c 'touch /cm.jar'
+
+#COPY ./src/test/resources/* /resources/
+#COPY ./src/test/resources/attributeLists/* /resources/attributeLists/
+#COPY ./src/test/resources/externalEntities/* /resources/externalEntities/
+#COPY ./src/test/resources/internal/* /resources/internal/
+
+ADD ./target/cm-0.0.1.jar seal-cm.jar
+RUN sh -c 'touch /seal-cm.jar'
 ENV JAVA_OPTS=""
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /cm.jar" ]
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /seal-cm.jar" ]
+
+#COPY ./scripts/commands.sh /scripts/commands.sh
+#RUN ["chmod", "+x", "/scripts/commands.sh"]
+#ENTRYPOINT ["/scripts/commands.sh"]
+
 EXPOSE 8083
 #EXPOSE 8080
