@@ -29,7 +29,12 @@ public class HomeController {
      * For e.g. if the api is available at http://example.org/api/v2/api-docs then 
      * the base url is http://example.org/api/. 
      * Please enter the location manually: 
+     * 
+     * 
+     * DELETE COOKIES!!
       */
+	
+	
 	@RequestMapping(value = "/")
     public String index() {
         System.out.println("swagger-ui.html");

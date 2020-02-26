@@ -33,7 +33,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-// @ComponentScan(basePackages = { "eu.seal.cm", "eu.seal.cm.rest_api" })
+//@ComponentScan(basePackages = { "eu.seal.cm", "eu.seal.cm.rest_api" })
 @ComponentScan(basePackages = { "eu.seal.cm" })
 public class ConfMngr2SpringBoot implements CommandLineRunner {
 
