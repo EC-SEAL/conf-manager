@@ -5,7 +5,7 @@
 
 Please see https://joinup.ec.europa.eu/community/eupl/news/understanding-eupl-v12 for translations of the EUPL-1.2 into various European languages. (This matrix showing the EUPL-1.2's compatibility with other OSI-approved licenses may also be useful.)
 
-EUPL © the European Union 2007, 2016
+EUPL © the European Union 2020
 
 This European Union Public Licence (the ‘EUPL’) applies to the Work (as defined below) which is provided under the terms of this Licence. Any use of the Work, other than as authorised under this Licence is prohibited (to the extent such use is covered by a right of the copyright holder of the Work).
 

@@ -70,6 +70,16 @@ public class EntityCollectionsGetServiceImp implements EntityCollectionsGetServi
 				  	case "EDUGAIN":
 				  		entityTypes.add("EDUGAIN");
 				  		break;
+				  	case "access":
+				  	case "Access":
+				  	case "ACCESS":
+				  		entityTypes.add("ACCESS");
+				  		break;
+				  	case "SSIwallet":
+				  	case "SSIWALLET":
+				  	case "SSI":
+				  		entityTypes.add("SSI");
+				  		break;
 					default:
 						throw new Exception("Unknown kind of entity");
 				  

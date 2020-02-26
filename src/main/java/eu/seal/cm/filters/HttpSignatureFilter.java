@@ -90,10 +90,10 @@ public class HttpSignatureFilter extends GenericFilterBean {
             		Logger.info("cm/metadata methods...");
             		
             		boolean result;
-            		//if (httpsigEnabled) {
+//            		if (httpsigEnabled) {
             			result = sigServ.verifySignature ((HttpServletRequest) request, allMicroservicesServ.allMicroservicesGet(), null).equals(HttpResponseEnum.AUTHORIZED);
 	                
-            		//} else result = true; // Only testing in local
+//            		} else result = true; // Only testing in local
             		
             		if (result) {
 	                    chain.doFilter(request, response);

@@ -1,0 +1,15 @@
+[{
+    "entityId" : "PDS",
+    "defaultDisplayName" : "Personal Data Store",
+    "displayNames" : null,
+    "logo" : null
+},
+  {
+    "entityId" : "SSI",
+    "defaultDisplayName" : "SSI Wallet",
+    "displayNames" : null,
+    "logo" : null
+ }
+]
+
+
