@@ -1,5 +1,5 @@
 /**
-Copyright © 2019  Atos Spain SA. All rights reserved.
+Copyright © 2020  Atos Spain SA. All rights reserved.
 This file is part of SEAL Configuration Manager (SEAL ConfMngr).
 SEAL ConfMngr is free software: you can redistribute it and/or modify it under the terms of EUPL 1.2.
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT ANY WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
@@ -79,6 +79,10 @@ public class EntityCollectionsGetServiceImp implements EntityCollectionsGetServi
 				  	case "SSIWALLET":
 				  	case "SSI":
 				  		entityTypes.add("SSI");
+				  		break;
+				  	case "Persistence":
+				  	case "PERSISTENCE":
+				  		entityTypes.add("PERSISTENCE");
 				  		break;
 					default:
 						throw new Exception("Unknown kind of entity");

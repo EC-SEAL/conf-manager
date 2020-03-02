@@ -1,0 +1,56 @@
+[{
+    "entityId" : "localMobile",
+    "defaultDisplayName" : "Mobile",
+    "displayNames" : null,
+    "logo" : null,
+    "microservice" : [
+        "localMobile_ms001", "localMobile_ms002"
+    ]
+},
+{
+    "entityId" : "remoteMobile",
+    "defaultDisplayName" : "Mobile",
+    "displayNames" : null,
+    "logo" : null,
+    "microservice" : [
+        "remoteMobile_ms001", "remoteMobile_ms002"
+    ]
+},
+ {
+    "entityId" : "Browser",
+    "defaultDisplayName" : "Browser",
+    "displayNames" : null,
+    "logo" : null,
+    "microservice" : [
+        "Browser_ms001", "Browser_ms002"
+    ]
+},
+{
+    "entityId" : "googleDrive",
+    "defaultDisplayName" : "Google Drive",
+    "displayNames" : null,
+    "logo" : null,
+    "microservice" : [
+        "googleDrive_ms001"
+    ]
+ },
+ {
+    "entityId" : "cloudServiceXYZ",
+    "defaultDisplayName" : "Cloud Storage Service XYZ",
+    "displayNames" : null,
+    "logo" : null,
+    "microservice" : [
+        "webDev_ms001"
+    ]
+ },
+  {
+    "entityId" : "oneDrive",
+    "defaultDisplayName" : "Microsoft OneDrive",
+    "displayNames" : null,
+    "logo" : null,
+    "microservice" : [
+        "oneDrive_ms001"
+    ]
+ }
+]
+
