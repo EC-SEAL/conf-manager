@@ -26,7 +26,7 @@ The **microservices** configuration json file are allocated at **/resources**. F
 
 The json files describing the different **attribute schemas**, are put at **/resources/attributeLists**. Examples provided with the deployment are: eduOrg.json, eduPerson.json, eIDAS.json, schac.json.
 
-The json files with the **external entities** are found at **/resources/externalEntities**. Some examples are deployed: ATTRSOURCEmetadata.json, AUTHSOURCEmetadata.json, EDUGAINmetadata.json, EIDASmetadata.json. 
+The json files with the **external entities** are found at **/resources/externalEntities**. Some examples are deployed: ATTRSOURCEmetadata.json, AUTHSOURCEmetadata.json, EDUGAINmetadata.json, EIDASmetadata.json, PERSISTENCEmetadata.json. 
 
 The json file with the *internal* configuration can be found at */resources/internal*. A LGW_config.json is deployed. [TO BE REMOVED]
 

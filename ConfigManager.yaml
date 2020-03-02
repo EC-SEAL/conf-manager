@@ -240,8 +240,6 @@ paths:
         404:
           description: "Attribute Profile not found"
 
-
-		  
 definitions:
 
 ####### ConfigManager ########
@@ -468,7 +466,7 @@ definitions:
         description: String identifying the language code of the value contents
         type: string
         example: "ES_es"
-      isMandatory:
+      mandatory:
         description: To mark the mandatoriness of the attribute.
         type: boolean
         example: true
