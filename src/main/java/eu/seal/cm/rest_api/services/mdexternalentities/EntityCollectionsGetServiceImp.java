@@ -47,50 +47,21 @@ public class EntityCollectionsGetServiceImp implements EntityCollectionsGetServi
 				  entityKind = fileName.substring (0,fileName.indexOf("metadata.json"));
 				  // TO BE AWARE of the fileName expected
 				  
-				  switch (entityKind) {
+				  switch (entityKind.toUpperCase()) {
 				  
 				  	case "AUTHSOURCE":
-				  	case "AuthSource":
-				  	case "authsource":
-				  	case "authorizationSource":
-				  	case "authenticationSource":  		
-				  		entityTypes.add("AUTHSOURCE");
-				  		break;
 				  	case "ATTRSOURCE":
-				  	case "AttrSource":
-				  	case "attrsource":
-				  	case "attributesSource":
-				  		entityTypes.add("ATTRSOURCE");
-				  		break;
-				  	case "eIDAS":
 				  	case "EIDAS":
-				  		entityTypes.add("EIDAS");
-				  		break;
-				  	case "eduGAIN":
 				  	case "EDUGAIN":
-				  		entityTypes.add("EDUGAIN");
-				  		break;
-				  	case "access":
-				  	case "Access":
 				  	case "ACCESS":
-				  		entityTypes.add("ACCESS");
-				  		break;
-				  	case "SSIwallet":
-				  	case "SSIWALLET":
-				  	case "SSI":
-				  		entityTypes.add("SSI");
-				  		break;
-				  	case "Persistence":
+				  	case "SSIWALLET": 
 				  	case "PERSISTENCE":
-				  		entityTypes.add("PERSISTENCE");
+				  		entityTypes.add(entityKind.toUpperCase());
 				  		break;
 					default:
-						throw new Exception("Unknown kind of entity");
-				  
-				  }
-				  
-			  	}
-			  		    
+						throw new Exception("Unknown kind of entity");				  
+				  }				  
+			  	}			  		    
 			}
 			else // Empty directory
 				throw new Exception(Constants.ENTITY_FILES_NOT_FOUND);
