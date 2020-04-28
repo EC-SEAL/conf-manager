@@ -1,0 +1,24 @@
+[{
+    "entityId" : "eidasVCdef",
+    "defaultDisplayName" : "eIDAS VC definition",
+    "displayNames" : null,
+    "logo" : null,
+    "microservice" : [
+        "uPort_ms001", "uPort_ms002"
+    ]
+},
+  {
+    "entityId" : "edugainVCdef",
+    "defaultDisplayName" : "eduGAIN VC definition",
+    "displayNames" : null,
+    "logo" : null
+ },
+  {
+    "entityId" : "emrtdVCdef",
+    "defaultDisplayName" : "eMRTD VC definition",
+    "displayNames" : null,
+    "logo" : null
+ }
+]
+
+

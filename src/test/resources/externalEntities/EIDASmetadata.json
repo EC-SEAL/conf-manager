@@ -1,5 +1,32 @@
 
   [{
+  "entityId": "https://seal.eu/eidas-idp",
+  "defaultDisplayName": "SEAL_EIDAS_IDP",
+  "logo":"",
+  "displayNames": { "en": null },
+  "location": ["Greece"],
+  "protocol": "OIDC/SAML",
+  "microservice": ["eIDAS-IdP"],
+  "claims": [
+    "CurrentFamilyName",
+    "CurrentGivenName",
+    "DateOfBirth",
+    "PersonIdentifier"
+  ],
+  "endpoints": [{ "type": "GET", "method": "GET", "url": "/as/authenticate" }],
+  "securityKeys": [
+    { "usage": "signing", "key": "kkk", "keyType": "RSAPublicKey" },
+    { "usage": "signing", "key": "kkk", "keyType": "RSAPublicKey" }
+  ],
+  "encryptResponses": true,
+  "supportedEncryptionAlg": ["RSA"],
+  "signResponses": true,
+  "supportedSigningAlg": ["RSA"],
+  "otherData": "null"
+},
+  
+  
+  {
     "entityId" : "redirisClave2",
     "defaultDisplayName" : null,
     "displayNames" : null,

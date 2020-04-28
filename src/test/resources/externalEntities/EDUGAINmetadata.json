@@ -1,4 +1,53 @@
 [{
+    "entityId" : "http://vm.project-seal.eu:10080/auth/realms/master/protocol/saml/descriptor",
+    "signResponses" : null,
+    "encryptResponses" : null,
+    "otherData" : {
+        "subdialect" : null,
+        "spApplication" : null,
+        "redirect.validate" : null,
+        "issuer" : null,
+        "redirect.sign" : null,
+        "dialect" : null,
+        "sign.logout" : null,
+		"hidden" : false
+    },
+    "endpoints" : [
+        {
+            "type" : "SingleLogoutService",
+            "method" : "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect",
+            "url" : "http://vm.project-seal.eu:10080/auth/realms/master/protocol/saml"
+        },
+        {
+            "type" : "SingleSignOnService",
+            "method" : "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect",
+            "url" : "http://vm.project-seal.eu:10080/auth/realms/master/protocol/saml"
+        }
+    ],
+    "microservice" : [
+        "edugainIDPms_001"
+    ],
+    "displayNames" : {"ES" : "ATOS MOCKUP eduGAIN Proveedor de Attributos","EN" : "ATOS MOCKUP eduGAIN Attribute Provider"},
+    "supportedEncryptionAlg" : [
+        null
+    ],
+    "defaultDisplayName" : "ATOS MOCKUP Attribute Provider",
+    "securityKeys" : [
+        {
+            "keyType" : "X509Certificate",
+            "usage" : "signing",
+            "key" : "MIICmzCCAYMCBgFwn7vbIzANBgkqhkiG9w0BAQsFADARMQ8wDQYDVQQDDAZtYXN0ZXIwHhcNMjAwMzAzMDkyOTEzWhcNMzAwMzAzMDkzMDUzWjARMQ8wDQYDVQQDDAZtYXN0ZXIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCkYpsR1yfRJH0Htv1+HCOqbgU7T7SK/iPhTeCJBRwE2q1DN29ySb9eBeXXdjZK5Sk7+v/jX+ur3NTqUVuNdSg/NfeKAAU2F7JSUWzl8icizLIJ8stXs1j40nfPAF3dfJcApI06FAD6H0E4mwpER4ddqHr+McwVzzuaewH7fs+SeSlLYPLBbirrUMp4BNdMmP8g0XdDZc2NHOsqLJrDiT+EKw86a3E1csE7d4D23XEJX8nYTnTEKogmSqm4zuT8vwbo/O7pfHQYjrjwTeisA6cCHdc2ox8kSs3JlO6966ryRv4ODyq0PwrHG+EbOGOFfG7qulPaI6Nf9bX7O4z3vbEdAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAHp5tM4buTvDFKgUoLRFsTtjl38hY5ch3qhLbz7H2Nu44a2DF4i8Gu1gWzml0krDbgsJS0IKshr8LGOZtN8E08B24UdP3lhLvkVH7AXAEnhZ1NmoZ/8nMNr5B7hZJja1diUl4m4HxJpf00w5w1zYMvvLGzt6lJH48n5f/R7jOvQJgwkhjPb4j+WA11VwgBY8RsZjGL53tok79nRLXQHi7U3xDy9gbIZskmngSH439uucV4lAyJ+Xc+KhbarZH+EKnHMBTXg6bwHxT9+BH2pv53Fmk+kC0MToh8s+BtHM4ZRSFRf8YkF9fsE+aSP+6jIO9b0yC4Y5p47JHFOjXIyaXwU="
+        }
+    ],
+    "protocol" : null,
+    "location" : null,
+	"claims" : ["mail","sn","givenName","displayName"],
+    "supportedSigningAlg" : [
+        null
+    ],
+    "logo" : null
+},
+{
     "entityId" : "https://stork.uji.es/ujiidp/saml2/idp/metadata.php",
     "signResponses" : null,
     "encryptResponses" : null,
