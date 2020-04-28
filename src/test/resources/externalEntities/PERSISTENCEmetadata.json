@@ -31,7 +31,7 @@
     "displayNames" : null,
     "logo" : null,
     "microservice" : [
-        "googleDrive_ms001"
+        "PERms001", "googleDrive_ms001"
     ]
  },
  {
@@ -49,7 +49,7 @@
     "displayNames" : null,
     "logo" : null,
     "microservice" : [
-        "oneDrive_ms001"
+        "PERms001","oneDrive_ms001"
     ]
  }
 ]

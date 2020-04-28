@@ -4,7 +4,7 @@
     "displayNames" : null,
     "logo" : null,
     "microservice" : [
-       "SAMLms_0001", "eIDASms_0001"
+       "eIDAS-IdP", "eIDASms_0001" 
     ]
 },
 {
@@ -13,7 +13,7 @@
     "displayNames" : null,
     "logo" : null,
     "microservice" : [
-        "eduGAINms_0001","eduGAINms_0002"
+        "edugainIDPms_001","eduGAINms_0002"
     ]
  }
 

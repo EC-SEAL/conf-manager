@@ -1,0 +1,12 @@
+[{
+    "entityId" : "UUID",
+    "defaultDisplayName" : "UUID",
+    "displayNames" : null,
+    "logo" : null,
+    "microservice" : [
+        "uuid_ms001", "uuid_ms002"
+    ]
+}
+
+]
+

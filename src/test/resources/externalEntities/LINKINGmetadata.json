@@ -1,0 +1,21 @@
+[{
+    "entityId" : "autoSEAL",
+    "defaultDisplayName" : "Automatic SEAL Linking",
+    "displayNames" : null,
+    "logo" : null,
+    "microservice" : [
+        "autoSEAL_ms001", "autoSEAL_ms002"
+    ]
+},
+  {
+    "entityId" : "manualXYZ",
+    "defaultDisplayName" : "Manual XYZ Linking",
+    "displayNames" : null,
+    "logo" : null,
+    "microservice" : [
+        "manualXYZ_ms001", "manualXYZ_ms002"
+    ]
+ }
+]
+
+
