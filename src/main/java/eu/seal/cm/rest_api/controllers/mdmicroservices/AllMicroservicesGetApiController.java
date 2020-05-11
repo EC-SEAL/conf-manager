@@ -53,7 +53,7 @@ public class AllMicroservicesGetApiController implements AllMicroservicesGetApi 
     
     public ResponseEntity<MsMetadataList> allMicroservicesGet() {
         String accept = request.getHeader("Accept");
-        if (accept != null && accept.contains("application/json")) {
+        //if (accept != null && accept.contains("application/json")) {
         	
         	
         	try {
@@ -85,9 +85,9 @@ public class AllMicroservicesGetApiController implements AllMicroservicesGetApi 
                 return new ResponseEntity<MsMetadataList>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         	*/
-        }
+        //}
 
-        return new ResponseEntity<MsMetadataList>(HttpStatus.NOT_IMPLEMENTED);
+        //return new ResponseEntity<MsMetadataList>(HttpStatus.NOT_IMPLEMENTED);
     }
     
 }

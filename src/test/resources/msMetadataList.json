@@ -5,13 +5,12 @@
     "authorisedMicroservices": [
       "SMms001",
       "CLms001",
+      "emrtdISms_001",
+      "PERms001",
       "edugainIDPms_001",
-      "eIDAS-IdP",
-      "ACMms001",
-	  "PERms001",
-	  "RMms001",
-	  "autoSEAL_ms001",
-	  "SAMLms_0001"
+      "RMms001",
+      "autoSEAL_ms001",
+	  "eIDAS-IdP"
     ],
     "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
     "publishedAPI": [
@@ -45,11 +44,12 @@
   {
     "msId": "SMms001",
     "authorisedMicroservices": [
-      "IDPCarlosNikosms001",
+      "edugainIDPms_001",
       "CLms001",
-      "ACMms001",
-      "SAMLms_0001",
-	  "PERms001"
+      "emrtdISms_001",
+      "PERms001",
+      "RMms001",
+      "SAMLms_0001"
     ],
     "rsaPublicKeyBinary": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkvZf4Lm7dqp17tk/ICI+cCilI3yLfQraHy4pxFYDNn29l9eHnYRFnN9jBKKvOzSxf2zQkigNcHhIi96s7G4/xPL3rVaYepp/xfCKn5vkZeqg1PFOE0HqDKCnIbLxNdnHYDLICQrd1PRTdFHnwRpLouF6B3PCZpQL5XxX3WFzg2KZ2U1NIdVLJjWb3AY1SJ4kIYAOIwn6AZQPum4i5G4M9QQj3KGl164007TUx27rxzBVILpm+knxYjUiipqZ/5kiDdTxYBPR0qDVIhSl3hk9RhSI95s7unrll8rb3E8w1ORrfTQNg1UlpGgww3jZi3GLScLEK3ghwg5H5gL/2SSiEwIDAQAB",
     "publishedAPI": [
@@ -100,7 +100,7 @@
   {
     "msId": "CLms001",
     "authorisedMicroservices": [
-      "IdPCarlosNikosms001"
+      "TBDms001"
     ],
     "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
     "publishedAPI": [
@@ -114,10 +114,25 @@
     ]
   },
   {
-    "msId": "ACMms001",
+    "msId": "emrtdISms_001",
+    "authorisedMicroservices": [
+      "CLms001"
+    ],
+    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+    "publishedAPI": [
+        {
+        "apiClass": "IS",
+        "apiCall": "isLoad",
+        "apiConnectionType": "post",
+        "apiEndpoint": "https://vm.project-seal.eu:8073/is/load"
+      }
+      
+    ]
+  },
+  {
+    "msId": "RMms001",
     "authorisedMicroservices": [
       "SAMLms_0001",
-      "GW2GWms001",
       "SMms001",
       "CMms001",
 	  "IdPms001"
@@ -125,16 +140,16 @@
     "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
     "publishedAPI": [
       {
-        "apiClass": "SPCL",
-        "apiCall": "acmRequest",
+        "apiClass": "RM",
+        "apiCall": "rmRequest",
         "apiConnectionType": "post",
-        "apiEndpoint": "https://vm.project-seal.eu:8073/acm/request"
+        "apiEndpoint": "https://vm.project-seal.eu:8063/rm/request"
       },
       {
-        "apiClass": "SPCL",
-        "apiCall": "acmResponse",
+        "apiClass": "RM",
+        "apiCall": "rmResponse",
         "apiConnectionType": "post",
-        "apiEndpoint": "https://vm.project-seal.eu:8073/acm/response"
+        "apiEndpoint": "https://vm.project-seal.eu:8063/rm/response"
       }
     ]
   },
@@ -169,7 +184,7 @@
   {
     "msId": "edugainIDPms_001",
     "authorisedMicroservices": [
-      "ACMms001"
+      "CLms001"
     ],
     "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
     "publishedAPI": [
@@ -188,9 +203,9 @@
     ]
   },
   {
-    "msId": "eIDAS-IdP" ,
+    "msId": "eIDAS-IdP",
     "authorisedMicroservices": [
-      "ACMms001"
+      "CLms001"
     ],
     "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
     "publishedAPI": [
@@ -198,7 +213,7 @@
         "apiClass": "AS",
         "apiCall": "authenticate",
         "apiConnectionType": "post",
-        "apiEndpoint": "http://vm.project-seal.eu:8091/eidas-idp/authenticate"
+        "apiEndpoint": "http://vm.project-seal.eu:8091/eidas-idp/as/authenticate"
       },
       {
         "apiClass": "IS",
@@ -208,21 +223,7 @@
       }
     ]
   },
-  {
-    "msId": "uPort_ms001" ,
-    "authorisedMicroservices": [
-      "ACMms001"
-    ],
-    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
-    "publishedAPI": [
-      {
-        "apiClass": "VC",
-        "apiCall": "issue",
-        "apiConnectionType": "post",
-        "apiEndpoint": "http://vm.project-seal.eu:XXXX/vc/issue"
-      }
-    ]
-  },
+
     {
     "msId": "PERms001",
     "authorisedMicroservices": [
@@ -264,13 +265,34 @@
     "authorisedMicroservices": [
       "ACMms001"
     ],
-    "rsaPublicKeyBinary": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApHwI6SBl4oZct/97MvT6aPOBz6SPENo60beNKjVlQH/GLKk57+xHglTjeAlm1L2UVnlMDMQcoYDv1xx5QHCD+lf3kocOT2R23XRs5ZihIFI4W34Of8+kYb8LO3Yt6VN36q8Qc5tTRlNEXk9hNnTunRtaL64FJXvkbZJGZyYcQR9wufaaSNPYl8cHYx4UqBZgI8gJ7tKhl28vL6L6fgu38JYuAoyFz571ACZk5UjdprOvU27mcyLlcuQOGUzEnFTWHmPZI58hsu1wzi1zykP654s/j17BOzqCcMuMj12R1FX57t1h8MAzOWC/F9Rc6D2fGBMcww4p32xv/Zb361gMHwIDAQAB",
-    "publishedAPI": [
+    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+	"publishedAPI": [
       {
         "apiClass": "LINK",
         "apiCall": "request-submit",
         "apiConnectionType": "post",
-        "apiEndpoint": "http://vm.project-seal.eu:XXXX/link/request/submit"
+        "apiEndpoint": "http://vm.project-seal.eu:9050/link/request/submit"
+      }
+    ]
+  },
+  {
+    "msId": "uPort_ms001" ,
+    "authorisedMicroservices": [
+      "ACMms001"
+    ],
+    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+    "publishedAPI": [
+      {
+        "apiClass": "VC",
+        "apiCall": "issue",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://vm.project-seal.eu:4000/vc/issue"
+      },
+      {
+        "apiClass": "VC",
+        "apiCall": "didAuth",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://vm.project-seal.eu:4000/vc/didAuth"
       }
     ]
   }
