@@ -1,0 +1,26 @@
+[{
+    "entityId" : "PDS",
+    "defaultDisplayName" : "Personal Data Store",
+    "displayNames" : null,
+    "logo" : null
+},
+  {
+    "entityId" : "SSI",
+    "defaultDisplayName" : "SSI Wallet",
+    "displayNames" : null,
+    "logo" : null
+ },
+   {
+    "entityId" : "eIDAS",
+    "defaultDisplayName" : "eIDAS",
+    "displayNames" : null,
+    "logo" : null
+ },
+   {
+    "entityId" : "eduGAIN",
+    "defaultDisplayName" : "eduGAIN",
+    "displayNames" : null,
+    "logo" : null
+ }
+]
+

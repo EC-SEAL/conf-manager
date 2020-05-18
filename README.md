@@ -56,15 +56,15 @@ ConfManager:
       image: mvjatos/seal-cm:0.0.1 
       environment:
             - KEYSTORE_PATH=/resources/testKeys/keystore.jks
-            - KEY_PASS=selfsignedpass
-            - STORE_PASS=keystorepass
-            - HTTPSIG_CERT_ALIAS=1
-            - SIGNING_SECRET=QjG+wP1CbAH2z4PWlWIDkxP4oRlgK2vos5/jXFfeBw8=
+            - KEY_PASS=xxxxx
+            - STORE_PASS=xxxxx
+            - HTTPSIG_CERT_ALIAS=xxxxx
+            - SIGNING_SECRET=xxxxx
             - ASYNC_SIGNATURE=true
             - SSL_KEYSTORE_PATH=/resources/keystoreatos.jks
-            - SSL_STORE_PASS=AtosCert1
-            - SSL_KEY_PASS=AtosCert1
-            - SSL_CERT_ALIAS=atoscert
+            - SSL_STORE_PASS=xxxxx
+            - SSL_KEY_PASS=xxxxx
+            - SSL_CERT_ALIAS=xxxxx
         volumes:
             - /SEAL/CM/resources:/resources
         ports:
