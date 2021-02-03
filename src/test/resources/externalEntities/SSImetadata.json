@@ -5,7 +5,16 @@
     "logo" : null,
     "microservice" : [
         "uPort_ms001"
-    ]
+    ],
+  "endpoints": [{ "type": "GET", "method": "GET", "url": "/vc/issue/eidas" }],
+  "securityKeys": [
+    { "usage": "signing", "key": "kkk", "keyType": "RSAPublicKey" }
+  ],
+  "encryptResponses": true,
+  "supportedEncryptionAlg": ["RSA"],
+  "signResponses": true,
+  "supportedSigningAlg": ["RSA"],
+  "otherData": "null"
 }
 ]
 

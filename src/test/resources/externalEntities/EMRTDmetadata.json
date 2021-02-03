@@ -1,0 +1,34 @@
+[{
+  "entityId": "https://seal.eu/emrtd-idp",
+  "defaultDisplayName": "SEAL_EMRTD_IDP",
+  "logo":"",
+  "displayNames": { "en": null },
+  "location": ["Spain"],
+  "protocol": null,
+  "microservice": ["emrtdISms_001"],
+  "claims": [
+    "DocumentCode",
+    "IssuingState",
+    "DocumentNumber",
+    "DateOfExpiry",
+    "GivenName",
+    "Surname",
+    "Nationality",
+    "DateOfBirth",
+    "Sex",
+    "PlaceOfBirth",
+    "FaceImage"
+  ],
+  "endpoints": [{ "type": "POST", "method": "POST", "url": "/is/load" }],
+  "securityKeys": [
+    { "usage": "signing", "key": "kkk", "keyType": "RSAPublicKey" },
+    { "usage": "signing", "key": "kkk", "keyType": "RSAPublicKey" }
+  ],
+  "encryptResponses": true,
+  "supportedEncryptionAlg": ["RSA"],
+  "signResponses": true,
+  "supportedSigningAlg": ["RSA"],
+  "otherData": "null"
+  
+}
+  ]

@@ -125,6 +125,11 @@
         "apiCall": "isLoad",
         "apiConnectionType": "post",
         "apiEndpoint": "https://vm.project-seal.eu:8073/is/load"
+      },
+      {"apiClass": "IS",
+        "apiCall": "isLocal",
+        "apiConnectionType": "post",
+        "apiEndpoint": "TO ASK UMA which URL returns here"
       }
       
     ]
@@ -143,43 +148,62 @@
         "apiClass": "RM",
         "apiCall": "rmRequest",
         "apiConnectionType": "post",
-        "apiEndpoint": "https://vm.project-seal.eu:8063/rm/request"
+        "apiEndpoint": "https://vm.project-seal.eu:9063/rm/request"
       },
       {
         "apiClass": "RM",
         "apiCall": "rmResponse",
         "apiConnectionType": "post",
-        "apiEndpoint": "https://vm.project-seal.eu:8063/rm/response"
+        "apiEndpoint": "https://vm.project-seal.eu:9063/rm/response"
       }
     ]
   },
   {
     "msId": "SAMLms_0001",
     "authorisedMicroservices": [
-      "ACMms001"
+      "RMms001"
     ],
     "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
     "publishedAPI": [
       {
-        "apiClass": "PER",
-        "apiCall": "query",
+        "apiClass": "SP",
+        "apiCall": "handleResponse",
         "apiConnectionType": "post",
-        "apiEndpoint": "https://stork.uji.es/clave1b/module.php/esmo/ap/query.php/saml2"
-      },
+        "apiEndpoint": "https://vm.project-seal.eu:9060/query/module.php/esmo/sp/response.php/esmo"
+      }
+    ]
+  },
+    {
+    "msId": "OIDCms_0001",
+    "authorisedMicroservices": [
+      "RMms001"
+    ],
+    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+    "publishedAPI": [
       {
         "apiClass": "SP",
         "apiCall": "handleResponse",
         "apiConnectionType": "post",
-        "apiEndpoint": "https://stork.uji.es/esmoSPms/module.php/esmo/sp/response.php/esmo"
-      },
-      {
-        "apiClass": "AS",
-        "apiCall": "authenticate",
-        "apiConnectionType": "post",
-        "apiEndpoint": "https://stork.uji.es/clave1b/module.php/esmo/idp/authenticate.php/eidas"
+        "apiEndpoint": "http://vm.project-seal.eu:8180/query/module.php/esmo/sp/response.php/esmo"
       }
     ]
   },
+  {
+  "msId": "SPms001",
+  "authorisedMicroservices": [
+    "RMms001",
+    "SMms001"
+  ],
+  "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+  "publishedAPI": [
+    {
+      "apiClass": "SP",
+      "apiCall": "handleResponse",
+      "apiConnectionType": "post",
+      "apiEndpoint": "https://esmo.uji.es:8180/auth/realms/seal/sp/response"
+    }
+  ]
+},
   
   {
     "msId": "edugainIDPms_001",
@@ -235,35 +259,20 @@
         "apiClass": "PER",
         "apiCall": "store",
         "apiConnectionType": "post",
-        "apiEndpoint": "http://vm.project-seal.eu:8082/per/store"
+        "apiEndpoint": "https://vm.project-seal.eu:8082/per/store"
       },
       {
         "apiClass": "PER",
         "apiCall": "load",
         "apiConnectionType": "post",
-        "apiEndpoint": "http://vm.project-seal.eu:8082/per/load"
-      }
-    ]
-  },
-    {
-    "msId": "uuid_ms001",
-    "authorisedMicroservices": [
-      "ACMms001"
-    ],
-    "rsaPublicKeyBinary": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApHwI6SBl4oZct/97MvT6aPOBz6SPENo60beNKjVlQH/GLKk57+xHglTjeAlm1L2UVnlMDMQcoYDv1xx5QHCD+lf3kocOT2R23XRs5ZihIFI4W34Of8+kYb8LO3Yt6VN36q8Qc5tTRlNEXk9hNnTunRtaL64FJXvkbZJGZyYcQR9wufaaSNPYl8cHYx4UqBZgI8gJ7tKhl28vL6L6fgu38JYuAoyFz571ACZk5UjdprOvU27mcyLlcuQOGUzEnFTWHmPZI58hsu1wzi1zykP654s/j17BOzqCcMuMj12R1FX57t1h8MAzOWC/F9Rc6D2fGBMcww4p32xv/Zb361gMHwIDAQAB",
-    "publishedAPI": [
-      {
-        "apiClass": "IDBOOT",
-        "apiCall": "generate",
-        "apiConnectionType": "post",
-        "apiEndpoint": "http://vm.project-seal.eu:XXXX/idboot/generate"
+        "apiEndpoint": "https://vm.project-seal.eu:8082/per/load"
       }
     ]
   },
   {
     "msId": "autoSEAL_ms001",
     "authorisedMicroservices": [
-      "ACMms001"
+      "RMms001"
     ],
     "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
 	"publishedAPI": [
@@ -272,28 +281,84 @@
         "apiCall": "request-submit",
         "apiConnectionType": "post",
         "apiEndpoint": "http://vm.project-seal.eu:9050/link/request/submit"
+      },
+      {
+        "apiClass": "LINK",
+        "apiCall": "status",
+        "apiConnectionType": "get",
+        "apiEndpoint": "http://vm.project-seal.eu:9050/link/{requestId}/status"
+      },
+      {
+        "apiClass": "LINK",
+        "apiCall": "result-get",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://vm.project-seal.eu:9050/link/{requestId}/result/get"
       }
     ]
   },
+    {
+    "msId": "ManualLinkms001",
+    "authorisedMicroservices": [
+      "RMms001"
+    ],
+    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJBbbirvao04+n3R0rvX2Mbq+JJyEl06K6hWf4MarVi6YTuJWWQb3D0mkWLATBchAntTsQsj+TH8VLkVIP3YWuOeT949AmfGQ1lM5FTzYmyh5wl6n1v/k7CGKqkm/WLRZD94HJE+FDhJ+ERy4/nF54n6exZ1Fd4eevfzE1QqNJSQIDAQAB",
+    "publishedAPI": [
+      {
+        "apiClass": "LINK",
+        "apiCall": "request-submit",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://vm.project-seal.eu:8070/link/request/submit"
+      },
+      {
+        "apiClass": "LINK",
+        "apiCall": "status",
+        "apiConnectionType": "get",
+        "apiEndpoint": "http://vm.project-seal.eu:8070/link/{requestId}/status"
+      },
+      {
+        "apiClass": "LINK",
+        "apiCall": "result-get",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://vm.project-seal.eu:8070/link/{requestId}/result/get"
+      }
+    ]
+  },
+  
   {
     "msId": "uPort_ms001" ,
     "authorisedMicroservices": [
-      "ACMms001"
+      "RMms001"
     ],
-    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+    "rsaPublicKeyBinary": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkvZf4Lm7dqp17tk/ICI+cCilI3yLfQraHy4pxFYDNn29l9eHnYRFnN9jBKKvOzSxf2zQkigNcHhIi96s7G4/xPL3rVaYepp/xfCKn5vkZeqg1PFOE0HqDKCnIbLxNdnHYDLICQrd1PRTdFHnwRpLouF6B3PCZpQL5XxX3WFzg2KZ2U1NIdVLJjWb3AY1SJ4kIYAOIwn6AZQPum4i5G4M9QQj3KGl164007TUx27rxzBVILpm+knxYjUiipqZ/5kiDdTxYBPR0qDVIhSl3hk9RhSI95s7unrll8rb3E8w1ORrfTQNg1UlpGgww3jZi3GLScLEK3ghwg5H5gL/2SSiEwIDAQAB",
     "publishedAPI": [
       {
         "apiClass": "VC",
         "apiCall": "issue",
         "apiConnectionType": "post",
-        "apiEndpoint": "http://vm.project-seal.eu:4000/vc/issue"
+        "apiEndpoint": "https://vm.project-seal.eu:4000/vc/issue"
       },
       {
         "apiClass": "VC",
         "apiCall": "didAuth",
+        "apiConnectionType": "get",
+        "apiEndpoint": "https://vm.project-seal.eu:4000/vc/didAuth"
+      }
+    ]
+  },  
+  {
+    "msId": "uuid_ms001" ,
+    "authorisedMicroservices": [
+      "RMms001"
+    ],
+    "rsaPublicKeyBinary": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkvZf4Lm7dqp17tk/ICI+cCilI3yLfQraHy4pxFYDNn29l9eHnYRFnN9jBKKvOzSxf2zQkigNcHhIi96s7G4/xPL3rVaYepp/xfCKn5vkZeqg1PFOE0HqDKCnIbLxNdnHYDLICQrd1PRTdFHnwRpLouF6B3PCZpQL5XxX3WFzg2KZ2U1NIdVLJjWb3AY1SJ4kIYAOIwn6AZQPum4i5G4M9QQj3KGl164007TUx27rxzBVILpm+knxYjUiipqZ/5kiDdTxYBPR0qDVIhSl3hk9RhSI95s7unrll8rb3E8w1ORrfTQNg1UlpGgww3jZi3GLScLEK3ghwg5H5gL/2SSiEwIDAQAB",
+    "publishedAPI": [
+      {
+        "apiClass": "IDBOOT",
+        "apiCall": "generate",
         "apiConnectionType": "post",
-        "apiEndpoint": "http://vm.project-seal.eu:4000/vc/didAuth"
+        "apiEndpoint": "https://vm.project-seal.eu:9020/idboot/generate"
       }
     ]
   }
+  
 ]

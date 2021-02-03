@@ -44,7 +44,7 @@ public class ClassEntitiesGetServiceImp implements ClassEntitiesGetService{
 		try {
 			
 			
-			fileStringValue = Utils.readFile (externalEntitiesPath + entityClassId + fileSecondPart);
+			fileStringValue = Utils.readFile (externalEntitiesPath + entityClassId.toUpperCase() + fileSecondPart);
 		
 			Gson gson = new Gson();
 			classEntities = gson.fromJson(fileStringValue, EntityMetadataList.class);

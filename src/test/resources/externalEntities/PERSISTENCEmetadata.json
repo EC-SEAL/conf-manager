@@ -1,10 +1,19 @@
 [{
+    "entityId" : "localMobile",
+    "defaultDisplayName" : "localMobile",
+    "displayNames" : null,
+    "logo" : null,
+    "microservice" : [
+        "PERms001", "localMobile_ms001"
+    ]
+},
+ {
     "entityId" : "Mobile",
     "defaultDisplayName" : "Mobile",
     "displayNames" : null,
     "logo" : null,
     "microservice" : [
-        "Mobile_ms001", "Mobile_ms002"
+        "PERms001", "Mobile_ms001"
     ]
 },
  {
@@ -13,7 +22,7 @@
     "displayNames" : null,
     "logo" : null,
     "microservice" : [
-        "Browser_ms001", "Browser_ms002"
+        "PERms001", "Browser_ms001"
     ]
 },
 {

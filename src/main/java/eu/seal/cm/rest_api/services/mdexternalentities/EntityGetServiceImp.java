@@ -42,7 +42,7 @@ public class EntityGetServiceImp implements EntityGetService{
 		
 		String fileStringValue;
 		try {
-			String fileName = entityClassId + fileSecondPart;
+			String fileName = entityClassId.toUpperCase() + fileSecondPart;
 			// TO BE AWARE of the fileName expected
 			
 			fileStringValue = Utils.readFile (externalEntitiesPath + fileName);

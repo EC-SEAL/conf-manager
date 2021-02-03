@@ -1,5 +1,5 @@
 [{
-    "entityId" : "eidasVCdef",
+    "entityId" : "eidas",
     "defaultDisplayName" : "eIDAS VC definition",
     "displayNames" : null,
     "logo" : null,
@@ -8,13 +8,13 @@
     ]
 },
   {
-    "entityId" : "edugainVCdef",
+    "entityId" : "edugain",
     "defaultDisplayName" : "eduGAIN VC definition",
     "displayNames" : null,
     "logo" : null
  },
   {
-    "entityId" : "emrtdVCdef",
+    "entityId" : "emrtd",
     "defaultDisplayName" : "eMRTD VC definition",
     "displayNames" : null,
     "logo" : null

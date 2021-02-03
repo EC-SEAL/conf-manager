@@ -1,4 +1,43 @@
 [{
+  "entityId": "https://eid-proxy.aai-dev.grnet.gr/Saml2IDP/proxy.xml",
+  "defaultDisplayName": "GRNET Attribute Provider",
+  "logo":"",
+  "displayNames": { "en": null },
+  "location": ["Greece"],
+  "protocol": "OIDC/SAML",
+  "microservice": ["edugainIDPms_001"],
+  "claims": [
+    "eduPersonTargetedID",
+    "givenName",
+    "mail",
+    "cn",
+    "sn",
+    "displayName",
+    "eduPersonPrincipalName",
+    "eduPersonEntitlement"
+  ],
+  "endpoints": [
+  {
+     "type" : "SingleSignOnService",
+     "method" : "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect",
+     "url" : "https://eid-proxy.aai-dev.grnet.gr/Saml2/sso/redirect"
+  },
+  {
+     "type" : "SingleSignOnService",
+     "method" : "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect",
+     "url" : "https://eid-proxy.aai-dev.grnet.gr/Edugain/sso/redirect"
+  }      
+  ],
+  "securityKeys": [
+    { "usage": "signing", "key": "kkk", "keyType": "RSAPublicKey" }
+  ],
+  "encryptResponses": true,
+  "supportedEncryptionAlg": ["RSA"],
+  "signResponses": true,
+  "supportedSigningAlg": ["RSA"],
+  "otherData": "null"
+},
+{
     "entityId" : "http://vm.project-seal.eu:10080/auth/realms/master/protocol/saml/descriptor",
     "signResponses" : null,
     "encryptResponses" : null,
