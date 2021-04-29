@@ -111,11 +111,11 @@ public class MsMetadataList extends ArrayList<MsMetadata>  {
           for (MsMetadata msConfig : config) {
         	  try {
                   byte[] encodedBytes = getPublicKey(msConfig.getRsaPublicKeyBinary()).getEncoded();
-//                  System.out.println(
-//                          "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB"
-//                          .equals(msConfig.getRsaPublicKeyBinary()));
-//                  
-//                  System.out.println(msConfig.getRsaPublicKeyBinary());
+                  System.out.println(
+                          "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB"
+                          .equals(msConfig.getRsaPublicKeyBinary()));
+                  
+                  System.out.println(msConfig.getRsaPublicKeyBinary());
                   if ( DigestUtils.sha256Hex(encodedBytes).equals(rsaFingerPrint)) {
                 	  msMatch = msConfig;
                 	  break;

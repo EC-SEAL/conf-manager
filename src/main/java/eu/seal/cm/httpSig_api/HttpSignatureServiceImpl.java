@@ -97,7 +97,7 @@ public class HttpSignatureServiceImpl implements HttpSignatureService {
         String authorization = httpRequest.getHeader("authorization");
         if (authorization != null) {
             final Signature sigToVerify = Signature.fromString(authorization);
-            //log.info("HTTP Signature received: " + sigToVerify);
+            log.info("HTTP Signature received: " + sigToVerify);
             /* check request contains all mandatory headers
              */
             boolean emptyRequiredHeader
@@ -144,7 +144,7 @@ public class HttpSignatureServiceImpl implements HttpSignatureService {
                 if (!StringUtils.isEmpty(httpRequest.getQueryString())) {
                     uri += "?" + httpRequest.getQueryString();
                 }
-                //log.info("Veryfing signature for " + uri + " and verb " + method);
+                log.info("Veryfing signature for " + uri + " and verb " + method);
 
                 
                 if (allMicroservices != null) {
@@ -218,14 +218,16 @@ public class HttpSignatureServiceImpl implements HttpSignatureService {
     		MsMetadataList allMicroservices,
             String method, String uri, Map<String, String> headers) throws InvalidKeyException, IOException, NoSuchAlgorithmException, InvalidKeySpecException, SignatureException {
         String fingerprint = sigToVerify.getKeyId();
+        log.info("fingerprint: ", fingerprint);
         final Optional<PublicKey> pubKey = allMicroservices.getPublicKeyFromFingerPrint(fingerprint);
+        log.info("publickey: " + pubKey);
         
-        //headers.entrySet().forEach(e -> {
+        headers.entrySet().forEach(e -> {
             //log.info(e.getKey() + ":-->" + e.getValue());
-        //});
-        //log.info("URI " + uri);
-        //log.info("Method " + method);
-        //log.info(headers.get("original-date") + "Original-date");
+        });
+        log.info("URI " + uri);
+        log.info("Method " + method);
+        log.info(headers.get("original-date") + "Original-date");
         
         if (pubKey.isPresent()) {
             final Verifier verifier = new Verifier(pubKey.get(), sigToVerify);
