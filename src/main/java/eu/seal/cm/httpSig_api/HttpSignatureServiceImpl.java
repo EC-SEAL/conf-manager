@@ -223,7 +223,7 @@ public class HttpSignatureServiceImpl implements HttpSignatureService {
         log.info("publickey: " + pubKey);
         
         headers.entrySet().forEach(e -> {
-            //log.info(e.getKey() + ":-->" + e.getValue());
+            log.info(e.getKey() + ":-->" + e.getValue());
         });
         log.info("URI " + uri);
         log.info("Method " + method);
